@@ -46,7 +46,7 @@ body {
 
 /*Remove styling from link on buttons*/
 .header-nav__list a {
-  color: white;
+  color: #fff8e1;
   text-decoration: none;
 }
 
@@ -79,6 +79,48 @@ body {
 }
 
 /* Main */
+
+.grid-12-column {
+  display: grid;
+  grid-template-columns: 12, 1fr;
+  gap: 16px;
+}
+
+.img-responsive {
+  width: 100%;
+}
+
+.xs-12 {
+  grid-column: auto / span 12
+}
+
+@media (width >= 768px) {
+  .sm-8 {
+    grid-column: auto / span 8;
+  }
+}
+
+@media (width >= 768px) {
+  .sm-6 {
+    grid-column: auto / span 6;
+  }
+}
+
+@media (width >= 768px) {
+  .sm-4 {
+    grid-column: auto / span 4;
+  }
+}
+
+@media (width >= 1080px) {
+  .md-3 {
+    grid-column: auto / span 3;
+  }
+}
+
+.xs-hidden {
+  display: none;
+}
 
 .banner-section {
   display: grid;
