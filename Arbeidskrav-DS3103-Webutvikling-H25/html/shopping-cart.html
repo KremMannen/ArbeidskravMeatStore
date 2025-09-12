@@ -22,18 +22,26 @@
     />
   </head>
   <body>
-    <header>
-      <!-- Website top bar -->
-      <div id="top-bar">
-        <h1><a href="index.html">Sloppy Meat</a></h1>
-        <button id="shopping-cart-button" class="button-nostyle">
-          <i class="fa-solid fa-cart-shopping"><a href=""></a></i>
-        </button>
-        <button id="search-button" class="button-nostyle">
-          <i class="fa-solid fa-magnifying-glass"></i>
-        </button>
-      </div>
-    </header>
+    <header class="header-banner">
+      <h1 class="header-title">
+        <a href="index.html">Sloppy Meat</a>
+      </h1>
+
+       <div class="search-container" id="searchContainer">
+    <input type="text" class="search-input" placeholder="Search products..." id="searchInput">
+    <button class="search-close" id="searchClose">&times;</button>
+  </div>
+      <nav class="header-nav">
+        <ul class="header-nav__list">
+          <li><i class="fa-solid fa-magnifying-glass fa-xl"></i></li>
+          <li>
+            <a href="/html/shopping-cart.html">
+              <i class="fa-solid fa-cart-shopping fa-xl"></i
+            ></a>
+          </li>
+        </ul>
+      </nav>
+  </header>
 
     <main>
       <!-- Top Banner, horizontal placement -->
