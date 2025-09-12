@@ -89,8 +89,9 @@ body {
 .banner-section {
   margin-top: 20px;
   margin-bottom: 20px;
-  background-color: #cb5252;
+  background-color: #8C7F65;
   padding: 10px;
+  box-shadow: 0px 2px 4px rgb(78, 78, 78);
 }
 
 .banner-section__banner {
