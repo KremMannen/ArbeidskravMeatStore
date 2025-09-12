@@ -5,7 +5,7 @@ body {
 }
 
 /* Top banner */
-#header-banner {
+.header-banner {
   background-color: #51c6f8;
   display: flex;
   justify-content: space-between;
@@ -30,7 +30,7 @@ body {
 }
 
 /*Navigation elements layout styling*/
-.navigation--list {
+.header-nav__list {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -40,19 +40,14 @@ body {
 }
 
 /*Pointer effects for buttons*/
-.navigation--list i {
+.header-nav__list i {
   cursor: pointer;
 }
 
 /*Remove styling from link on buttons*/
-.navigation--list a {
+.header-nav__list a {
   color: white;
   text-decoration: none;
-}
-
-#top-bar a {
-  color: inherit; /* Needed so line under doesnt remove color styling */
-  text-decoration: none; /* removes underline from links*/
 }
 
 /* This will remove default background on html button */
