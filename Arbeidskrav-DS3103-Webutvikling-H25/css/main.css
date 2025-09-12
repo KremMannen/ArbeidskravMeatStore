@@ -82,7 +82,7 @@ body {
 
 .grid-12-column {
   display: grid;
-  grid-template-columns: 12, 1fr;
+  grid-template-columns: repeat(12, 1fr);
   gap: 16px;
 }
 
@@ -91,7 +91,7 @@ body {
 }
 
 .xs-12 {
-  grid-column: auto / span 12
+  grid-column: auto / span 12;
 }
 
 @media (width >= 768px) {
@@ -123,9 +123,6 @@ body {
 }
 
 .banner-section {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 24px;
   margin-top: 20px;
   margin-bottom: 20px;
   background-color: blue;
