@@ -82,7 +82,7 @@ body {
 
 .grid-12-column {
   display: grid;
-  grid-template-columns: 12, 1fr;
+  grid-template-columns: repeat(12, 1fr);
   gap: 16px;
 }
 
@@ -115,6 +115,18 @@ body {
 @media (width >= 1080px) {
   .md-3 {
     grid-column: auto / span 3;
+  }
+}
+
+@media (width >= 1080px) {
+  .md-6 {
+    grid-column: auto / span 6;
+  }
+}
+
+@media (width >= 1080px) {
+  .md-8 {
+    grid-column: auto / span 8;
   }
 }
 
