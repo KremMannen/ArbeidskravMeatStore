@@ -81,6 +81,7 @@ body {
 /* Main */
 
 .banner-section {
+  display: grid;
 }
 
 .special-products {
