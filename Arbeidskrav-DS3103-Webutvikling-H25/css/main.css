@@ -130,7 +130,7 @@ body {
 }
 
 .banner-section__banner {
-  height: 140px;
+  height: 250px;
   grid-column: span 4 / auto;
 }
 
