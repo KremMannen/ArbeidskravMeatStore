@@ -142,7 +142,6 @@ body {
 }
 
 .banner-section__banner {
-  height: 250px;
   grid-column: span 4 / auto;
 }
 
