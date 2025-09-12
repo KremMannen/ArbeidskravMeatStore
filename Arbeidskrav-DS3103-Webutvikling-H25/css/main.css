@@ -118,6 +118,18 @@ body {
   }
 }
 
+@media (width >= 1080px) {
+  .md-6 {
+    grid-column: auto / span 6;
+  }
+}
+
+@media (width >= 1080px) {
+  .md-8 {
+    grid-column: auto / span 8;
+  }
+}
+
 .xs-hidden {
   display: none;
 }
