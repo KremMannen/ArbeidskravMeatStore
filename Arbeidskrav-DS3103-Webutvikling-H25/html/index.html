@@ -22,22 +22,19 @@
     />
   </head>
   <body>
-    <header>
-      <!-- Website top bar -->
-      <div id="top-bar">
-        <h1><a href="index.html">Sloppy Meat</a></h1>
+ <header id="header-banner">      
+    <h1 class="header-title">
+        <a href="index.html">Sloppy Meat</a>
+    </h1>
 
-        <!-- Shopping cart button -->
-        <a href="shopping-cart.html" id="shopping-cart" class="header-button">
-          <i class="fa-solid fa-cart-shopping"></i>
-        </a>
-
-        <!-- Search button -->
-        <button class="header-button">
-          <i class="fa-solid fa-magnifying-glass"></i>
-        </button>
-      </div>
-    </header>
+    <nav id="header-nav">
+        <ul class="navigation--list">
+            <li><a href="/html/shopping-cart.html">
+              <i class="fa-solid fa-cart-shopping fa-xl"></i></a></li>
+            <li><i class="fa-solid fa-magnifying-glass fa-xl"></i></li>
+        </ul>
+    </nav>
+</header>
 
     <main>
       <!-- Top Banner, horizontal placement -->
@@ -54,12 +51,9 @@
       </section>
 
       <section id="special-products-section">
-        <div id="limited-products-text-container">
-          <h2>Begrenset Opplag</h2>
-        </div>
-        <div id="chosen-products-text-container">
-          <h2>Utvalgt Storfe</h2>
-        </div>
+        <h2>Begrenset Opplag</h2>
+
+        <h2>Utvalgt Storfe</h2>
 
         <div id="limited-products-container">
           <!-- Generate content from products module -->
@@ -73,9 +67,7 @@
       <section id="ad-section"></section>
 
       <section id="products-section">
-        <div id="all-products-text-container">
-          <h2>Alle Varer</h2>
-        </div>
+        <h2>Alle Varer</h2>
 
         <div id="products-container">
           <!-- Generate content from products module -->

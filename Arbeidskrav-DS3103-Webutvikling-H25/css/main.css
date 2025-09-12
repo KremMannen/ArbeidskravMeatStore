@@ -4,58 +4,51 @@ body {
   background-color: #d9d9d9;
 }
 
-/* Header Styling */
-
-#top-bar {
-  background-color: #51c6f8;
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 1rem;
-  align-items: center;
+/* Top banner */
+#header-banner {
+    background-color: #51c6f8;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    align-items: center;
 }
 
-#top-bar h1 {
-  font-family: "Jaro", sans-serif;
-  font-size: 45px;
-  white-space: nowrap;
-  padding: 12px;
+/*Title / logo styling*/
+.header-title {
+    font-family: "Jaro", sans-serif;
+    font-size: 45px;
+    white-space: nowrap;
+    padding: 12px;
+    color: white;
+    text-shadow: 0px 2px 4px rgb(102, 102, 102);
+}
+
+/*Remove styling from link*/
+.header-title a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/*Navigation elements layout styling*/
+.navigation--list {  
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 3rem;
+    color: white;
+}
+
+/*Pointer effects for buttons*/
+.navigation--list i {
+    cursor: pointer;
+}
+
+/*Remove styling from link on buttons*/
+.navigation--list a {
   color: white;
-  grid-column: 1 / span 10; /* Pushes search and cart to the 2 rightmost fractions */
+    text-decoration: none;
 }
-
-#top-bar a {
-  color: inherit; /* Needed so line under doesnt remove color styling */
-  text-decoration: none; /* removes underline from links*/
-}
-
-/* This will remove default background on html button */
-.header-button {
-  font-size: 32px; /* adjust size of fontawesomeicons  */
-
-  background: none;
-  border: none;
-  outline: none;
-
-  padding: 0;
-
-  width: 50px;
-  height: 50px;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-#shopping-cart {
-  padding: 10px;
-  margin: 20px;
-}
-
-#search-button {
-  padding: 10px;
-  margin: 20px;
-}
-
 /* Footer */
 
 footer {
