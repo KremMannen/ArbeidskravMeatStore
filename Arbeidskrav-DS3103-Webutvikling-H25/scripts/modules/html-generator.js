@@ -7,7 +7,7 @@ const ProductBoxTemplate = () => {
     <article class="product-box xs-12 sm-4 md-3">
         <img class="img-responsive" src="../images/${product.imgName}" alt="picture of ${product.imgName}">
         <h2 class="product-box__title"> ${product.name}</h2>
-        <h3 class="product-box__weight">${product.weightInGrams}g</h3>
+        <h3 class="product-box__weight">${product.weightInGrams}g ${product.producer}</h3>
         <br>
         <p class="product-box__info">${product.info}</p>
             <div class="product-box__bottom">

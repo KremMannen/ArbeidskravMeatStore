@@ -1,5 +1,5 @@
-import ProductModule from "./modules/ProductModule.js";
-import ProductBoxTemplate from "./modules/ProductBoxTemplate.js";
+import ProductModule from "./modules/inventory.js";
+import ProductBoxTemplate from "./modules/html-generator.js";
 
 const productSection = document.querySelector(".products-section");
 const template = ProductBoxTemplate();

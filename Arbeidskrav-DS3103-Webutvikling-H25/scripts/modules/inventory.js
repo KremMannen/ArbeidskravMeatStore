@@ -1,4 +1,4 @@
-const ProductModule = (() => {
+const Inventory = (() => {
 
     const products = [
         {imgName: "chipotle-pølse.jpg",
@@ -69,6 +69,6 @@ const ProductModule = (() => {
 
 })();
 
-export default ProductModule;
+export default Inventory;
 
 
