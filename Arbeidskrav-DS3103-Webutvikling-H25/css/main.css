@@ -64,7 +64,6 @@ body {
 
 .img-responsive {
   width: 100%;
-  height: 100%;
 }
 
 
@@ -76,6 +75,79 @@ body {
   box-shadow: 0px 2px 4px rgb(78, 78, 78);
 }
 
+/*Styling for product boxes on all pages*/
+
+.product-box {
+  font-family:Arial, Helvetica, sans-serif;
+  color: #730d1f;
+  background-color:#fff8e1 ;
+  margin: 8px;
+  padding: 8px;
+  border: 1px solid rgb(216, 216, 216);
+  box-shadow: 0px 2px 2px rgba(82, 82, 82, 0.438);
+  cursor: grabbing;
+}
+.product-box:hover {
+  box-shadow: 4px 4px 4px rgba(59, 59, 59, 0.658);
+}
+
+.product-box .img-responsive {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    margin-bottom: 12px;
+}
+
+.product-box__title {
+  text-align: center;
+  font-family: "Jaro", sans-serif;
+  font-size: x-large;
+  padding: 4px;
+}
+
+.product-box__weight {
+  text-align: center;
+  font-weight: bold;
+}
+
+.product-box__info {
+  margin-bottom: 8px;
+  color: #730d20d8;
+}
+
+.product-box__bottom{
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+
+}
+
+.product-box__price-info{
+
+}
+
+.product-box__price {
+  font-size: xx-large;
+  font-weight: bold;
+}
+
+.product-box__kgPrice {
+  color: #730d20a2;
+}
+
+.product-box__button--purchase {
+  background-color:#f3e4c5;
+  color: #730d20;
+  border: 2px solid  #730d20;
+  cursor:grab;
+}
+
+.product-box__button--purchase:hover {
+  background-color:#730d20;
+  color: #f3e4c5;
+}
+
+/*Styling for special offer sections*/
 .banner-section__banner {
 }
 
@@ -137,14 +209,12 @@ footer li {
 
 
 /* Dynamic sizing */
-
 .grid-12-column {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  gap: 16px;
+  gap: 2px;
 }
 
-/* Mobile first approach */
 .xs-12 { grid-column: auto / span 12; }
 
 /* Small screens and up */
@@ -161,6 +231,7 @@ footer li {
   .md-8 { grid-column: auto / span 8; }
 }
 
+/*Hide elements based on screen size*/
 @media (width <= 768px) {
   .xs-hidden {
     display: none;
