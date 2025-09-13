@@ -33,4 +33,8 @@ const click = () => {
 
 // Initialize
 showAllProducts(productSection);
-searchButton.onclick = click;
+document.addEventListener("click", (e) => {
+  if (e.target.classList.contains("header-banner__search-toggle")) {
+    click();
+  }
+});

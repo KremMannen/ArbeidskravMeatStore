@@ -36,4 +36,9 @@ const showSearchResults = (element) => {
 
 showSearchResults(resultSection);
 
-searchButton.onclick = click;
+// Initialize
+document.addEventListener("click", (e) => {
+  if (e.target.classList.contains("header-banner__search-toggle")) {
+    click();
+  }
+});
