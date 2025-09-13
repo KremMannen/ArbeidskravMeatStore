@@ -4,6 +4,10 @@ body {
   background-color: #c4af88;
 }
 
+.hidden {
+  display: none;
+}
+
 /* Top banner */
 .header-banner {
   background-color: #730d1f;
@@ -48,6 +52,16 @@ body {
 .header-banner__nav-item a {
   color: #fff8e1;
   text-decoration: none;
+}
+
+.header-banner__search-toggle {
+  cursor: pointer;
+  pointer-events: all;
+}
+
+.header-banner__search-field {
+  margin: 0px;
+  padding: 0px;
 }
 
 #shopping-cart {
@@ -139,22 +153,6 @@ body {
 .product-box__button--purchase:hover {
   background-color: #730d20;
   color: #f3e4c5;
-}
-
-/*Styling for special offer sections*/
-.banner-section__banner {
-}
-
-.special-products {
-}
-
-.special-products__group {
-}
-
-.special-products__title {
-}
-
-.special-products__container {
 }
 
 /* Footer */

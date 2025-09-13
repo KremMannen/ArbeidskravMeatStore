@@ -20,85 +20,112 @@
       href="https://fonts.googleapis.com/css2?family=Jaro:opsz@6..72&display=swap"
       rel="stylesheet"
     />
+    <script type="module" src="../scripts/index.js"></script>
   </head>
   <body>
     <header class="header-banner">
-      <h1 class="header-title">
+      <h1 class="header-banner__title">
         <a href="index.html">Sloppy Meat</a>
       </h1>
-
-       <div class="search-container" id="searchContainer">
-    <input type="text" class="search-input" placeholder="Search products..." id="searchInput">
-    <button class="search-close" id="searchClose">&times;</button>
-  </div>
-      <nav class="header-nav">
-        <ul class="header-nav__list">
-          <li><i class="fa-solid fa-magnifying-glass fa-xl"></i></li>
-          <li>
+      <nav class="header-banner__nav">
+        <ul class="header-banner__nav-list">
+          <li class="header-banner__nav-item">
+            <input
+              class="header-banner__search-field hidden"
+              type="text"
+              placeholder="Search products..."
+            />
+            <i
+              class="fa-solid fa-magnifying-glass fa-xl header-banner__search-toggle"
+            ></i>
+          </li>
+          <li class="header-banner__nav-item">
             <a href="/html/shopping-cart.html">
-              <i class="fa-solid fa-cart-shopping fa-xl"></i
-            ></a>
+              <i
+                class="fa-solid fa-cart-shopping fa-xl header-banner__cart-icon"
+              ></i>
+            </a>
           </li>
         </ul>
       </nav>
-  </header>
+    </header>
 
     <main>
-      <!-- Top Banner, horizontal placement -->
-      <section id="banner-section">
-        <div id="banner-a">
-          <img src="" alt="" />
+      <!-- Top Banners-->
+      <section class="banner-section grid-12-column">
+        <div class="banner-section__banner md-3 xs-hidden sm-hidden">
+          <img class="img-responsive" src="../images/banner-test.png" alt="" />
         </div>
-        <div id="banner-b">
-          <img src="" alt="" />
+        <div class="banner-section__banner xs-12 sm-8 md-6">
+          <img class="img-responsive" src="../images/banner-test.png" alt="" />
         </div>
-        <div id="banner-c">
-          <img src="" alt="" />
+
+        <div class="banner-section__banner md-3 sm-4 xs-hidden">
+          <img class="img-responsive" src="../images/banner-test.png" alt="" />
         </div>
       </section>
 
-      <section id="special-products-section">
-        <div id="limited-products-text-container">
-          <h2>Begrenset Opplag</h2>
-        </div>
-        <div id="chosen-products-text-container">
-          <h2>Utvalgt Storfe</h2>
+      <section class="products-section grid-12-column"></section>
+
+      <!-- Special Products -->
+      <section class="special-products xs-hidden">
+        <div class="special-products__group">
+          <h2 class="special-products__title">Begrenset Opplag</h2>
+          <div class="special-products__container">
+            <!-- Generate content from products module -->
+          </div>
         </div>
 
-        <div id="limited-products-container">
-          <!-- Generate content from products module -->
-        </div>
-
-        <div id="chosen-products-container">
-          <!-- Generate content from products module -->
+        <div class="special-products__group">
+          <h2 class="special-products__title">Utvalgt Storfe</h2>
+          <div class="special-products__container">
+            <!-- Generate content from products module -->
+          </div>
         </div>
       </section>
 
-      <section id="ad-section"></section>
-
-      <section id="products-section">
-        <div id="all-products-text-container">
-          <h2>Alle Varer</h2>
-        </div>
-
-        <div id="products-container">
-          <!-- Generate content from products module -->
-        </div>
-      </section>
+      <section class="ad-section"></section>
     </main>
 
-    <footer>
-      <section id="website-info">
-        <h3>SloppyMeat.no</h3>
+    <footer class="footer">
+      <section class="footer__section footer__section--website">
+        <h3 class="footer__title">SloppyMeat.no</h3>
+        <hr class="footer__divider" />
+        <ul class="footer__list">
+          <li class="footer__list-item">Om SloppyMeat</li>
+          <li class="footer__list-item">Cookies</li>
+          <li class="footer__list-item">Personvernerklæring</li>
+        </ul>
       </section>
-      <section id="contact-info">
-        <h3>Kontakt oss</h3>
+
+      <section class="footer__section footer__section--contact">
+        <h3 class="footer__title">Kontakt oss</h3>
+        <hr class="footer__divider" />
+        <ul class="footer__list">
+          <li class="footer__list-item">Finn butikk</li>
+          <li class="footer__list-item">Kontaktskjema</li>
+          <li class="footer__list-item">Kundeservice</li>
+        </ul>
       </section>
-      <section id="popular-info">
-        <h3>Populære temaer</h3>
+
+      <section class="footer__section footer__section--popular">
+        <h3 class="footer__title">Populære temaer</h3>
+        <hr class="footer__divider" />
+        <ul class="footer__list">
+          <li class="footer__list-item">Oppskrifter</li>
+          <li class="footer__list-item">Matbloggen</li>
+          <li class="footer__list-item">Keto guide</li>
+        </ul>
       </section>
-      <section id="follow-info">
-        <h3>Følg oss</h3>
+
+      <section class="footer__section footer__section--follow">
+        <h3 class="footer__title">Følg oss</h3>
+        <hr class="footer__divider" />
+        <ul class="footer__list">
+          <li class="footer__list-item">Facebook</li>
+          <li class="footer__list-item">Twitter</li>
+          <li class="footer__list-item">Instagram</li>
+        </ul>
       </section>
     </footer>
   </body>
