@@ -2,6 +2,7 @@ modules:
 	inventory.js
 		funtion () getLimitedProducts -> returns array of limited selection products to display
 		funtion () getSelectedProducts -> returns array of selected selection products to display
+		function (searchTerm) -> returns array of products that match search.
 	htmlManager.js
 		function (array) generateHtml -> generates product boxes in html and returns it as String
 		function (html, list) displayHtml -> takes a string (which should represent html) and displays it on the list which is a html element
