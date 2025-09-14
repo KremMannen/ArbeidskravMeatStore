@@ -1,5 +1,5 @@
 const cartHandler = (() => {
-  let products = []; // start empty
+  let products = [];
 
   // get array of products in shoppnig cart, useful to combine with
   // htmlHandler.generate(array)
@@ -9,14 +9,10 @@ const cartHandler = (() => {
 
   const pushObject = (object) => {
     products.push(structuredClone(object));
-    saveCartContent();
+    sessionStorage.setItem("cartContent", JSON.stringify(products));
     console.log(
       `Product "${object.name}" added to cart. Total items: ${products.length}`
     );
-  };
-
-  const saveCartContent = () => {
-    sessionStorage.setItem("cartContent", JSON.stringify(products));
   };
 
   const getCartContent = () => {
@@ -42,7 +38,6 @@ const cartHandler = (() => {
     getAll,
     pushObject,
     goToCart,
-    saveCartContent,
     getCartContent,
   };
 })();
