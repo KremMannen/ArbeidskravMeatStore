@@ -1,4 +1,4 @@
-import htmlGenerator from "./modules/html-handler.js";
+import htmlHandler from "./modules/html-handler.js";
 import searchHandler from "./modules/search-handler.js";
 
 setTimeout(() => {
@@ -6,28 +6,8 @@ setTimeout(() => {
   const searchButton = document.querySelector(".header-banner__search-toggle");
   let searchField = document.querySelector(".header-banner__search-field");
 
-  const showSearchResults = (element) => {
-    if (!element) {
-      return;
-    }
-    const searchResults = searchHandler.getSearchResults();
-    htmlGenerator.display(element, searchResults);
-  };
-
-  // Functions
-
-  function search() {
-    const searchTerm = searchField.value.trim();
-    searchField.value = "";
-
-    if (searchTerm) {
-      searchHandler.executeSearch(searchTerm);
-    }
-    searchField.classList.add("hidden");
-  }
-
   // Initialize
-  showSearchResults(resultSection);
+  htmlHandler.display(productSection, resultSection);
 
   searchButton.addEventListener("click", () => {
     searchHandler.toggleSearchField(searchField);
@@ -35,7 +15,7 @@ setTimeout(() => {
 
   searchField.addEventListener("keydown", (e) => {
     if (e.key === "Enter") {
-      search();
+      searchHandler.handleSearchFromField(searchField);
     }
   });
 }, 10); // 10 ms

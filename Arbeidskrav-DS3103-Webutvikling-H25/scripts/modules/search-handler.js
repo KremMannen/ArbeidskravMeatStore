@@ -20,6 +20,18 @@ const searchHandler = (() => {
     sessionStorage.setItem("searchResults", JSON.stringify(results));
   };
 
+  const handleSearchFromField = (searchField) => {
+    if (!searchField) return;
+
+    const searchTerm = searchField.value.trim();
+    searchField.value = "";
+
+    if (searchTerm) {
+      executeSearch(searchTerm);
+    }
+    searchField.classList.add("hidden");
+  };
+
   const toggleSearchField = (searchField) => {
     searchField.classList.toggle("hidden");
     console.log(
@@ -54,6 +66,7 @@ const searchHandler = (() => {
     navigateToSearchPage,
     executeSearch,
     toggleSearchField,
+    handleSearchFromField,
   };
 })();
 
