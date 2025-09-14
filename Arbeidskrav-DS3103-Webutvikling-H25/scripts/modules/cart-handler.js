@@ -20,8 +20,6 @@ const cartHandler = (() => {
   const getCartContent = () => {
     const storedResults = sessionStorage.getItem("cartContent");
     const cartArray = storedResults ? JSON.parse(storedResults) : [];
-
-    restoreCart();
     return storedResults ? JSON.parse(storedResults) : [];
   };
 
@@ -33,7 +31,6 @@ const cartHandler = (() => {
   };
 
   const goToCart = () => {
-    saveCartContent();
     window.location.href = "../html/shopping-cart.html";
   };
 
