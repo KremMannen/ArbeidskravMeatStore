@@ -1,20 +1,22 @@
-import inventory from "./modules/inventory.js";
 import htmlGenerator from "./modules/html-generator.js";
 import searchHandler from "./modules/search-handler.js";
 
-// Small delay to ensure everything is ready after navigation. This prevents buttons from buggin out.
 setTimeout(() => {
-  let productSection = document.querySelector(".products-section");
-  let searchButton = document.querySelector(".header-banner__search-toggle");
+  const resultSection = document.querySelector(".result-section");
+  const searchButton = document.querySelector(".header-banner__search-toggle");
   let searchField = document.querySelector(".header-banner__search-field");
 
-  // Functions
-  const showAllProducts = (element) => {
+  const showSearchResults = (element) => {
     if (!element) {
       return;
     }
-    const allProducts = inventory.getAll();
-    htmlGenerator.display(element, allProducts);
+    const searchResults = searchHandler.getSearchResults();
+
+    let htmlTxt = "";
+    searchResults.forEach((product) => {
+      htmlTxt += htmlGenerator(product);
+    });
+    element.innerHTML = htmlTxt;
   };
 
   function search() {
@@ -28,8 +30,6 @@ setTimeout(() => {
   }
 
   // Initialize
-  showAllProducts(productSection);
-
   searchButton.addEventListener("click", () => {
     searchHandler.toggleSearchField(searchField);
   });
