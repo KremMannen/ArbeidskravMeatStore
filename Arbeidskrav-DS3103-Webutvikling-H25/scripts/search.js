@@ -1,4 +1,4 @@
-import htmlGenerator from "./modules/html-generator.js";
+import htmlGenerator from "./modules/html-handler.js";
 import searchHandler from "./modules/search-handler.js";
 
 setTimeout(() => {
@@ -13,6 +13,8 @@ setTimeout(() => {
     const searchResults = searchHandler.getSearchResults();
     htmlGenerator.display(element, searchResults);
   };
+
+  // Functions
 
   function search() {
     const searchTerm = searchField.value.trim();

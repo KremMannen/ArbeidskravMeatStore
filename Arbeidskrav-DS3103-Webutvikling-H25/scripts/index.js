@@ -1,5 +1,5 @@
 import inventory from "./modules/inventory.js";
-import htmlGenerator from "./modules/html-generator.js";
+import htmlGenerator from "./modules/html-handler.js";
 import searchHandler from "./modules/search-handler.js";
 
 // Small delay to ensure everything is ready after navigation. This prevents buttons from buggin out.

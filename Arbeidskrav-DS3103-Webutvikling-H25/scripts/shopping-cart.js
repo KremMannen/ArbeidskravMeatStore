@@ -1,4 +1,4 @@
-import htmlGenerator from "./modules/html-generator.js";
+import htmlGenerator from "./modules/html-handler.js";
 import searchHandler from "./modules/search-handler.js";
 
 setTimeout(() => {
