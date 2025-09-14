@@ -1,6 +1,7 @@
 const inventory = (() => {
   const products = [
     {
+      id: 1,
       imgName: "chipotle-pølse.jpg",
       name: "Chipotlepølse",
       info: "m/Cheddar",
@@ -9,6 +10,7 @@ const inventory = (() => {
       priceNOK: 56,
     },
     {
+      id: 2,
       imgName: "fårikålkjøtt.jpg",
       name: "Fårikålkjøtt",
       info: "Av lam",
@@ -17,6 +19,7 @@ const inventory = (() => {
       priceNOK: 234,
     },
     {
+      id: 3,
       imgName: "grillpølser.jpg",
       name: "Grillpølse",
       info: "Tradisjonelle grillpølser",
@@ -25,6 +28,7 @@ const inventory = (() => {
       priceNOK: 62,
     },
     {
+      id: 4,
       imgName: "karbonadedeig.jpg",
       name: "Karbonadedeig",
       info: "5% u/Salt og Vann",
@@ -33,6 +37,7 @@ const inventory = (() => {
       priceNOK: 56,
     },
     {
+      id: 5,
       imgName: "karbonader.jpg",
       name: "Karbonader",
       info: "Ferdigstekte",
@@ -41,6 +46,7 @@ const inventory = (() => {
       priceNOK: 73,
     },
     {
+      id: 6,
       imgName: "kyllingkjøttdeig.jpg",
       name: "Kyllingkjøttdeig",
       info: "u/Salt og Vann",
@@ -49,6 +55,7 @@ const inventory = (() => {
       priceNOK: 64,
     },
     {
+      id: 7,
       imgName: "røkte-kjøttpølser.jpg",
       name: "Kjøttpølse Røkt",
       info: "",
@@ -57,6 +64,7 @@ const inventory = (() => {
       priceNOK: 57,
     },
     {
+      id: 8,
       imgName: "wienerpølser.jpg",
       name: "Wienerpølse",
       info: "",
