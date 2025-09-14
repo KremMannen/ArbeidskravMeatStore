@@ -11,11 +11,7 @@ setTimeout(() => {
       return;
     }
     const searchResults = searchHandler.getSearchResults();
-    let htmlTxt = "";
-    searchResults.forEach((product) => {
-      htmlTxt += htmlGenerator(product);
-    });
-    element.innerHTML = htmlTxt;
+    htmlGenerator.display(element, searchResults);
   };
 
   function search() {
