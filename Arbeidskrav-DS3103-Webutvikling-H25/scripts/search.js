@@ -5,19 +5,6 @@ const resultSection = document.querySelector(".result-section");
 const searchButton = document.querySelector(".header-banner__search-toggle");
 let searchField = document.querySelector(".header-banner__search-field");
 
-const click = () => {
-  if (searchField.classList.contains("hidden")) {
-    searchField.classList.remove("hidden");
-  } else {
-    const searchTerm = searchField.value.trim();
-    searchField.value = "";
-    if (searchTerm) {
-      searchHandler.executeSearch(searchTerm);
-    }
-    searchField.classList.add("hidden");
-  }
-};
-
 const showSearchResults = (element) => {
   if (!element) {
     return;
@@ -30,11 +17,25 @@ const showSearchResults = (element) => {
   element.innerHTML = htmlTxt;
 };
 
-showSearchResults(resultSection);
+function search() {
+  const searchTerm = searchField.value.trim();
+  searchField.value = "";
+
+  if (searchTerm) {
+    searchHandler.executeSearch(searchTerm);
+  }
+  searchField.classList.add("hidden");
+}
 
 // Initialize
-document.addEventListener("click", (e) => {
-  if (e.target.classList.contains("header-banner__search-toggle")) {
-    click();
+showSearchResults(resultSection);
+
+searchButton.addEventListener("click", () => {
+  searchHandler.toggleSearchField(searchField);
+});
+
+searchField.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    search();
   }
 });

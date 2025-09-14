@@ -6,6 +6,7 @@ let productSection = document.querySelector(".products-section");
 let searchButton = document.querySelector(".header-banner__search-toggle");
 let searchField = document.querySelector(".header-banner__search-field");
 
+// functions
 const showAllProducts = (element) => {
   const allProducts = inventory.getAll();
   let htmlTxt = "";
@@ -16,25 +17,25 @@ const showAllProducts = (element) => {
   element.innerHTML = htmlTxt;
 };
 
-const click = () => {
-  if (searchField.classList.contains("hidden")) {
-    searchField.classList.remove("hidden");
-  } else {
-    const searchTerm = searchField.value.trim();
-    searchField.value = "";
+function search() {
+  const searchTerm = searchField.value.trim();
+  searchField.value = "";
 
-    if (searchTerm) {
-      searchHandler.executeSearch(searchTerm);
-    }
-
-    searchField.classList.add("hidden");
+  if (searchTerm) {
+    searchHandler.executeSearch(searchTerm);
   }
-};
+  searchField.classList.add("hidden");
+}
 
 // Initialize
 showAllProducts(productSection);
-document.addEventListener("click", (e) => {
-  if (e.target.classList.contains("header-banner__search-toggle")) {
-    click();
+
+searchButton.addEventListener("click", () => {
+  searchHandler.toggleSearchField(searchField);
+});
+
+searchField.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    search();
   }
 });

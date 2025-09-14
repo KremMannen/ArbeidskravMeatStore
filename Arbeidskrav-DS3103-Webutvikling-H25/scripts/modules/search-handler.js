@@ -20,6 +20,14 @@ const searchHandler = (() => {
     sessionStorage.setItem("searchResults", JSON.stringify(results));
   };
 
+  const toggleSearchField = (searchField) => {
+    searchField.classList.toggle("hidden");
+    console.log(
+      "Toggled search field. Now hidden:",
+      searchField.classList.contains("hidden")
+    );
+  };
+
   const getSearchResults = () => {
     const storedResults = sessionStorage.getItem("searchResults");
     return storedResults ? JSON.parse(storedResults) : [];
@@ -41,6 +49,7 @@ const searchHandler = (() => {
     getSearchResults,
     navigateToSearchPage,
     executeSearch,
+    toggleSearchField,
   };
 })();
 
