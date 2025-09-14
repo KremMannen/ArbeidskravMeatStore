@@ -8,6 +8,7 @@ const inventory = (() => {
       producer: "Toten Kjøtt",
       weightInGrams: 230,
       priceNOK: 56,
+      quantity: 27,
     },
     {
       id: 2,
@@ -17,6 +18,7 @@ const inventory = (() => {
       producer: "Jæren Smak",
       weightInGrams: 1000,
       priceNOK: 234,
+      quantity: 33,
     },
     {
       id: 3,
@@ -26,6 +28,7 @@ const inventory = (() => {
       producer: "Toten Kjøtt",
       weightInGrams: 500,
       priceNOK: 62,
+      quantity: 15,
     },
     {
       id: 4,
@@ -35,6 +38,7 @@ const inventory = (() => {
       producer: "Meny",
       weightInGrams: 400,
       priceNOK: 56,
+      quantity: 38,
     },
     {
       id: 5,
@@ -44,6 +48,7 @@ const inventory = (() => {
       producer: "Toten Kjøtt",
       weightInGrams: 370,
       priceNOK: 73,
+      quantity: 22,
     },
     {
       id: 6,
@@ -53,6 +58,7 @@ const inventory = (() => {
       producer: "First Price",
       weightInGrams: 600,
       priceNOK: 64,
+      quantity: 31,
     },
     {
       id: 7,
@@ -62,6 +68,7 @@ const inventory = (() => {
       producer: "Toten Kjøtt",
       weightInGrams: 450,
       priceNOK: 57,
+      quantity: 18,
     },
     {
       id: 8,
@@ -71,6 +78,7 @@ const inventory = (() => {
       producer: "Toten Kjøtt",
       weightInGrams: 470,
       priceNOK: 69,
+      quantity: 40,
     },
   ];
 

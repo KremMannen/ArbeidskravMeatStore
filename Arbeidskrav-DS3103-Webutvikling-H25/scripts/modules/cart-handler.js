@@ -1,20 +1,53 @@
 import htmlHandler from "../modules/html-handler.js";
+import inventory from "./inventory.js";
 
 const cartHandler = (() => {
-  let products = [];
+  let cart = [];
 
   // get array of products in shoppnig cart, useful to combine with
   // htmlHandler.generate(array)
   const getAll = () => {
-    return structuredClone(products);
+    return structuredClone(cart);
+  };
+
+  const initAddToCartButton = (htmlElement) => {
+    htmlElement
+      .querySelectorAll(".product-box__button--purchase")
+      .forEach((button) => {
+        button.addEventListener("click", () => {
+          const productId = parseInt(button.dataset.id); // button has data-id
+          const product = inventory.getAll().find((p) => p.id === productId);
+
+          if (product) {
+            cartHandler.pushObject(product);
+          } else {
+            console.warn(
+              `⚠️ Product with id ${productId} not found in inventory`
+            );
+          }
+        });
+      });
   };
 
   const pushObject = (object) => {
-    products.push(structuredClone(object));
-    sessionStorage.setItem("cartContent", JSON.stringify(products));
-    console.log(
-      `Product "${object.name}" added to cart. Total items: ${products.length}`
-    );
+    // Check if product already exists in cart
+    const existing = cart.find((p) => p.id === object.id);
+
+    if (existing) {
+      existing.quantity += 1;
+      console.log(
+        `🔄 Increased quantity of "${object.name}" to ${existing.quantity}`
+      );
+    } else {
+      const copy = structuredClone(object);
+      copy.quantity = 1; // start with 1
+      cart.push(copy);
+      console.log(
+        `🛒 Added new product "${object.name}" to cart. Total items: ${cart.length}`
+      );
+    }
+
+    sessionStorage.setItem("cartContent", JSON.stringify(cart));
   };
 
   const getCartContent = () => {
@@ -26,25 +59,21 @@ const cartHandler = (() => {
   const restoreCart = () => {
     const storedResults = sessionStorage.getItem("cartContent");
     if (storedResults) {
-      products = JSON.parse(storedResults); // replace current array, no duplicates
+      cart = JSON.parse(storedResults);
     }
   };
 
   const displayCart = (container) => {
-    getAll().forEach((product) => {
-      // Check if this product already exists in the DOM
-      const existingBox = container.querySelector(
-        `.cart-box[data-id="${product.id}"]`
-      );
+    const allProducts = getAll();
 
-      if (existingBox) {
-        // Increment counter
-        const counter = existingBox.querySelector(".cart-box__product-counter");
-        counter.textContent = parseInt(counter.textContent) + 1;
-      } else {
-        // Generate new HTML
-        container.innerHTML += htmlHandler.generateCartBox(product);
-      }
+    console.log("🛒 DisplayCart called");
+    console.log("Contents of getAll():", allProducts);
+
+    allProducts.forEach((product, index) => {
+      console.log(`Rendering product #${index + 1}:`, product);
+
+      // Generate new HTML cart box
+      container.innerHTML += htmlHandler.generateCartBox(product);
     });
   };
 
@@ -60,6 +89,7 @@ const cartHandler = (() => {
     goToCart,
     getCartContent,
     displayCart,
+    initAddToCartButton,
   };
 })();
 

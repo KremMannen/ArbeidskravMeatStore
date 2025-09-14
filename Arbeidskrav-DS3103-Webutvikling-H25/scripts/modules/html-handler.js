@@ -43,10 +43,10 @@ const htmlHandler = (() => {
               <h2 class="cart-box__weight">${product.weightInGrams}g</h2>
             </div>
             <h3 class="cart-box__producer">${product.producer}</h3>
-            <div class="cart-box__button-container grid-12-column">
-              <button class="cart-box__button cart-box__button-subtract">-</button>
-              <p class="cart-box__product-counter">1</p>
-              <button class="cart-box__button cart-box__button-add">+</button>
+            <div class="cart-box__button-container grid-12-column" >
+              <button class="cart-box__button cart-box__button-subtract" data-id="${product.id}">-</button>
+              <p class="cart-box__product-counter">${product.quantity}</p>
+              <button class="cart-box__button cart-box__button-add" data-id="${product.id}">+</button>
             </div>
             <h3 class="cart-box__price">${product.priceNOK}kr</h3>
         </div>

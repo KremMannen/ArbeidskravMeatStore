@@ -14,31 +14,25 @@ setTimeout(() => {
   const addToCartButtons = [];
   const inventoryAll = inventory.getAll();
 
+  // Generate product html boxes
   inventoryAll.forEach((product) => {
     productSection.innerHTML += htmlHandler.generate(product);
-    productSection
-      .querySelectorAll(".product-box__button--purchase")
-      .forEach((button) => {
-        button.addEventListener("click", () => {
-          const productId = parseInt(button.dataset.id); // gets id from html button
-          const product = inventoryAll.find((p) => p.id === productId);
-
-          if (product) {
-            cartHandler.pushObject(product);
-            console.log(`Added to cart: ${product.name}`);
-          }
-        });
-      });
   });
 
+  // Select the buttons inside it, and apply onclick function
+  cartHandler.initAddToCartButton(productSection);
+
+  // Toggle search field visibility button
   searchButton.addEventListener("click", () => {
     searchHandler.toggleSearchField(searchField);
   });
 
+  // Shopping cart button
   cartButton.addEventListener("click", () => {
     cartHandler.goToCart();
   });
 
+  // Search on enter press
   searchField.addEventListener("keydown", (e) => {
     if (e.key === "Enter") {
       searchHandler.handleSearchFromField(searchField);
