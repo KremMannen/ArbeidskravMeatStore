@@ -26,6 +26,10 @@ const searchHandler = (() => {
       "Toggled search field. Now hidden:",
       searchField.classList.contains("hidden")
     );
+    // Sets cursor on the typing field so user can type immediately
+    if (!searchField.classList.contains("hidden")) {
+      setTimeout(() => searchField.focus(), 100);
+    }
   };
 
   const getSearchResults = () => {

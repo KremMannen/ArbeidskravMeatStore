@@ -33,11 +33,6 @@ setTimeout(() => {
 
   searchButton.addEventListener("click", () => {
     searchHandler.toggleSearchField(searchField);
-
-    // Sets cursor on the typing field so user can type immediately
-    if (!searchField.classList.contains("hidden")) {
-      setTimeout(() => searchField.focus(), 100);
-    }
   });
 
   searchField.addEventListener("keydown", (e) => {
