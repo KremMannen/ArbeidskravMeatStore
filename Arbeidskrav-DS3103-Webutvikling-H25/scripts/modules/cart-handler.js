@@ -44,12 +44,6 @@ const cartHandler = (() => {
       } else {
         // Generate new HTML
         container.innerHTML += htmlHandler.generateCartBox(product);
-
-        // Set initial counter to 1
-        const newBox = container.querySelector(
-          `.cart-box[data-id="${product.id}"]`
-        );
-        newBox.querySelector(".cart-box__product-counter").textContent = 1;
       }
     });
   };
