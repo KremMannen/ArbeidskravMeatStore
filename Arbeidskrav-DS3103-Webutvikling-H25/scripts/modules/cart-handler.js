@@ -1,6 +1,8 @@
 const cartHandler = (() => {
   let products = []; // start empty
 
+  // get array of products in shoppnig cart, useful to combine with
+  // htmlHandler.generate(array)
   const getAll = () => {
     return structuredClone(products);
   };

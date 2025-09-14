@@ -36,7 +36,6 @@ setTimeout(() => {
   });
 
   cartButton.addEventListener("click", () => {
-    cartHandler.saveCartContent();
     cartHandler.goToCart();
   });
 

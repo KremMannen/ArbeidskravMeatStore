@@ -27,7 +27,6 @@ setTimeout(() => {
   });
 
   cartButton.addEventListener("click", () => {
-    cartHandler.saveCartContent();
     cartHandler.goToCart();
   });
 }, 10); // 10 ms
