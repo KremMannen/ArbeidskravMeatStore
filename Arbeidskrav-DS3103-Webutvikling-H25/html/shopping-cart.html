@@ -20,22 +20,27 @@
       href="https://fonts.googleapis.com/css2?family=Jaro:opsz@6..72&display=swap"
       rel="stylesheet"
     />
+    <script type="module" src="../scripts/index.js"></script>
   </head>
   <body>
-
     <header class="header-banner">
       <h1 class="header-banner__title">
-        <a href="index.html">Sloppy Meat</a>
+        <a href="../html/index.html">Sloppy Meat</a>
       </h1>
       <nav class="header-banner__nav">
         <ul class="header-banner__nav-list">
+          <input
+            class="header-banner__search-field hidden"
+            type="text"
+            placeholder="Trykk enter for å søke..."
+          />
           <li class="header-banner__nav-item">
             <i
               class="fa-solid fa-magnifying-glass fa-xl header-banner__search-toggle"
             ></i>
           </li>
           <li class="header-banner__nav-item">
-            <a href="/html/shopping-cart.html">
+            <a href="../html/shopping-cart.html">
               <i
                 class="fa-solid fa-cart-shopping fa-xl header-banner__cart-icon"
               ></i>
@@ -45,62 +50,47 @@
       </nav>
     </header>
 
-    <main>
-      <!-- Top Banner, horizontal placement -->
-      <section id="banner-section">
-        <div id="banner-a">
-          <img src="" alt="" />
-        </div>
-        <div id="banner-b">
-          <img src="" alt="" />
-        </div>
-        <div id="banner-c">
-          <img src="" alt="" />
-        </div>
+    <main></main>
+
+    <footer class="footer">
+      <section class="footer__section footer__section--website">
+        <h3 class="footer__title">SloppyMeat.no</h3>
+        <hr class="footer__divider" />
+        <ul class="footer__list">
+          <li class="footer__list-item">Om SloppyMeat</li>
+          <li class="footer__list-item">Cookies</li>
+          <li class="footer__list-item">Personvernerklæring</li>
+        </ul>
       </section>
 
-      <section id="special-products-section">
-        <div id="limited-products-text-container">
-          <h2>Begrenset Opplag</h2>
-        </div>
-        <div id="chosen-products-text-container">
-          <h2>Utvalgt Storfe</h2>
-        </div>
-
-        <div id="limited-products-container">
-          <!-- Generate content from products module -->
-        </div>
-
-        <div id="chosen-products-container">
-          <!-- Generate content from products module -->
-        </div>
+      <section class="footer__section footer__section--contact">
+        <h3 class="footer__title">Kontakt oss</h3>
+        <hr class="footer__divider" />
+        <ul class="footer__list">
+          <li class="footer__list-item">Finn butikk</li>
+          <li class="footer__list-item">Kontaktskjema</li>
+          <li class="footer__list-item">Kundeservice</li>
+        </ul>
       </section>
 
-      <section id="ad-section"></section>
+      <section class="footer__section footer__section--popular">
+        <h3 class="footer__title">Populære temaer</h3>
+        <hr class="footer__divider" />
+        <ul class="footer__list">
+          <li class="footer__list-item">Oppskrifter</li>
+          <li class="footer__list-item">Matbloggen</li>
+          <li class="footer__list-item">Keto guide</li>
+        </ul>
+      </section>
 
-      <section id="products-section">
-        <div id="all-products-text-container">
-          <h2>Alle Varer</h2>
-        </div>
-
-        <div id="products-container">
-          <!-- Generate content from products module -->
-        </div>
-      </section>
-    </main>
-
-    <footer>
-      <section id="website-info">
-        <h3>SloppyMeat.no</h3>
-      </section>
-      <section id="contact-info">
-        <h3>Kontakt oss</h3>
-      </section>
-      <section id="popular-info">
-        <h3>Populære temaer</h3>
-      </section>
-      <section id="follow-info">
-        <h3>Følg oss</h3>
+      <section class="footer__section footer__section--follow">
+        <h3 class="footer__title">Følg oss</h3>
+        <hr class="footer__divider" />
+        <ul class="footer__list">
+          <li class="footer__list-item">Facebook</li>
+          <li class="footer__list-item">Twitter</li>
+          <li class="footer__list-item">Instagram</li>
+        </ul>
       </section>
     </footer>
   </body>

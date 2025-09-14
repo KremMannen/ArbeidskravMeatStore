@@ -1,19 +1,18 @@
-import inventory from "./modules/inventory.js";
 import htmlGenerator from "./modules/html-generator.js";
 import searchHandler from "./modules/search-handler.js";
 
-// Small delay to ensure everything is ready after navigation. This prevents buttons from buggin out.
 setTimeout(() => {
-  let productSection = document.querySelector(".products-section");
-  let searchButton = document.querySelector(".header-banner__search-toggle");
+  const resultSection = document.querySelector(".result-section");
+  const searchButton = document.querySelector(".header-banner__search-toggle");
   let searchField = document.querySelector(".header-banner__search-field");
 
-  // Functions
-  const showAllProducts = (element) => {
-    const allProducts = inventory.getAll();
+  const showSearchResults = (element) => {
+    if (!element) {
+      return;
+    }
+    const searchResults = searchHandler.getSearchResults();
     let htmlTxt = "";
-
-    allProducts.forEach((product) => {
+    searchResults.forEach((product) => {
       htmlTxt += htmlGenerator(product);
     });
     element.innerHTML = htmlTxt;
@@ -30,7 +29,7 @@ setTimeout(() => {
   }
 
   // Initialize
-  showAllProducts(productSection);
+  showSearchResults(resultSection);
 
   searchButton.addEventListener("click", () => {
     searchHandler.toggleSearchField(searchField);
