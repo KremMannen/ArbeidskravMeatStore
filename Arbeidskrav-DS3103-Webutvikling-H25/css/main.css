@@ -5,7 +5,7 @@ body {
 }
 
 .hidden {
-  display: none;
+  visibility: hidden;
 }
 
 /* Top banner */
@@ -43,7 +43,6 @@ body {
   margin-right: 20px;
 }
 
-/* Nav items (useful for hover effects) */
 .header-banner__nav-item i {
   cursor: pointer;
 }
@@ -62,6 +61,17 @@ body {
 .header-banner__search-field {
   margin: 0px;
   padding: 0px;
+
+  width: 100%;
+  max-width: 400px;
+  padding: 12px 20px;
+  border: 2px solid #e1e5e9;
+  border-radius: 25px;
+  font-size: 16px;
+  background-color: #f8f9fa;
+  transition: all 0.3s ease;
+  outline: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 #shopping-cart {

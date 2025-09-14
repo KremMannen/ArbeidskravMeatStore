@@ -20,17 +20,13 @@ const click = () => {
 
 const showSearchResults = (element) => {
   if (!element) {
-    console.error("Element not found");
     return;
   }
-
   const searchResults = searchHandler.getSearchResults();
   let htmlTxt = "";
-
   searchResults.forEach((product) => {
     htmlTxt += htmlGenerator(product);
   });
-
   element.innerHTML = htmlTxt;
 };
 
