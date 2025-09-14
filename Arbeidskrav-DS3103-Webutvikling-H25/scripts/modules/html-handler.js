@@ -45,7 +45,7 @@ const htmlHandler = (() => {
             <h3 class="cart-box__producer">${product.producer}</h3>
             <div class="cart-box__button-container grid-12-column">
               <button class="cart-box__button cart-box__button-subtract">-</button>
-              <p class="cart-box__product-number">0</p>
+              <p class="cart-box__product-counter">0</p>
               <button class="cart-box__button cart-box__button-add">+</button>
             </div>
             <h3 class="cart-box__price">${product.priceNOK}kr</h3>

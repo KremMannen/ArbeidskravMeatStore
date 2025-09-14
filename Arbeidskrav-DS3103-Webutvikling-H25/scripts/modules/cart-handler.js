@@ -1,3 +1,5 @@
+import htmlHandler from "../modules/html-handler.js";
+
 const cartHandler = (() => {
   let products = [];
 
@@ -28,6 +30,30 @@ const cartHandler = (() => {
     }
   };
 
+  const displayCart = (container) => {
+    getAll().forEach((product) => {
+      // Check if this product already exists in the DOM
+      const existingBox = container.querySelector(
+        `.cart-box[data-id="${product.id}"]`
+      );
+
+      if (existingBox) {
+        // Increment counter
+        const counter = existingBox.querySelector(".cart-box__product-counter");
+        counter.textContent = parseInt(counter.textContent) + 1;
+      } else {
+        // Generate new HTML
+        container.innerHTML += htmlHandler.generateCartBox(product);
+
+        // Set initial counter to 1
+        const newBox = container.querySelector(
+          `.cart-box[data-id="${product.id}"]`
+        );
+        newBox.querySelector(".cart-box__product-counter").textContent = 1;
+      }
+    });
+  };
+
   const goToCart = () => {
     window.location.href = "../html/shopping-cart.html";
   };
@@ -39,6 +65,7 @@ const cartHandler = (() => {
     pushObject,
     goToCart,
     getCartContent,
+    displayCart,
   };
 })();
 

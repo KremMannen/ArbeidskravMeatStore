@@ -9,13 +9,9 @@ setTimeout(() => {
   const cartButton = document.querySelector(".header-banner__cart-icon");
 
   // Initialize
+  cartHandler.displayCart(resultSection);
 
-  cartHandler.getAll().forEach((element) => {
-    resultSection.innerHTML += htmlHandler.generateCartBox(element);
-  });
-
-  htmlHandler.display(resultSection, cartHandler.getCartContent());
-
+  // Event listeners
   searchButton.addEventListener("click", () => {
     searchHandler.toggleSearchField(searchField);
   });
