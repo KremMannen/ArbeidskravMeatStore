@@ -7,7 +7,6 @@ setTimeout(() => {
   let searchField = document.querySelector(".header-banner__search-field");
 
   // Initialize
-  // htmlHandler.display(productSection, resultSection);
 
   searchButton.addEventListener("click", () => {
     searchHandler.toggleSearchField(searchField);
