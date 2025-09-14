@@ -3,12 +3,16 @@ import searchHandler from "./modules/search-handler.js";
 import cartHandler from "./modules/cart-handler.js";
 
 setTimeout(() => {
-  const resultSection = document.querySelector(".cart-section");
+  const resultSection = document.querySelector(".cart-section__container");
   const searchButton = document.querySelector(".header-banner__search-toggle");
   let searchField = document.querySelector(".header-banner__search-field");
   const cartButton = document.querySelector(".header-banner__cart-icon");
 
   // Initialize
+
+  cartHandler.getAll().forEach((element) => {
+    resultSection.innerHTML += htmlHandler.generateCartBox(element);
+  });
 
   htmlHandler.display(resultSection, cartHandler.getCartContent());
 

@@ -1,6 +1,6 @@
 // html-generator.js
 const htmlHandler = (() => {
-  const generate = (product) => {
+  const generateArticleBox = (product) => {
     const pricePerKg = (product.priceNOK * 1000) / product.weightInGrams;
 
     return `
@@ -31,6 +31,29 @@ const htmlHandler = (() => {
     `;
   };
 
+  const generateCartBox = (product) => {
+    const pricePerKg = (product.priceNOK * 1000) / product.weightInGrams;
+
+    return `
+      <article class="cart-box grid-12-column xs-12 sm-4 md-3" data-id="${product.id}">
+        <img class="cart-box__image img-responsive" src="../images/${product.imgName}" alt="picture of ${product.imgName}">
+        <div class="cart-box__info-container grid-12-column">
+            <div class="cart-box__toptext grid-12-column">
+              <h2 class="cart-box__title">${product.name}</h2>
+              <h2 class="cart-box__weight">${product.weightInGrams}g</h2>
+            </div>
+            <h3 class="cart-box__producer">${product.producer}</h3>
+            <div class="cart-box__button-container grid-12-column">
+              <button class="cart-box__button cart-box__button-subtract">-</button>
+              <p class="cart-box__product-number">0</p>
+              <button class="cart-box__button cart-box__button-add">+</button>
+            </div>
+            <h3 class="cart-box__price">${product.priceNOK}kr</h3>
+        </div>
+      </article>
+    `;
+  };
+
   const displayArray = (element, items) => {
     if (!element || !Array.isArray(items)) {
       console.warn("displayHtml: invalid arguments", { element, items });
@@ -39,22 +62,16 @@ const htmlHandler = (() => {
 
     let htmlTxt = "";
     items.forEach((item) => {
-      htmlTxt += generate(item);
+      htmlTxt += generateArticleBox(item);
     });
 
     element.innerHTML = htmlTxt;
   };
 
-  const display = (element, item) => {
-    let htmlTxt = "";
-    htmlTxt += generate(item);
-
-    element.innerHTML = htmlTxt;
-  };
-
   return {
-    generate,
-    display: displayArray,
+    generate: generateArticleBox,
+    displayArray,
+    generateCartBox,
   };
 })();
 
