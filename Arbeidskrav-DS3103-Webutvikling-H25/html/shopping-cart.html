@@ -22,26 +22,28 @@
     />
   </head>
   <body>
+
     <header class="header-banner">
-      <h1 class="header-title">
+      <h1 class="header-banner__title">
         <a href="index.html">Sloppy Meat</a>
       </h1>
-
-       <div class="search-container" id="searchContainer">
-    <input type="text" class="search-input" placeholder="Search products..." id="searchInput">
-    <button class="search-close" id="searchClose">&times;</button>
-  </div>
-      <nav class="header-nav">
-        <ul class="header-nav__list">
-          <li><i class="fa-solid fa-magnifying-glass fa-xl"></i></li>
-          <li>
+      <nav class="header-banner__nav">
+        <ul class="header-banner__nav-list">
+          <li class="header-banner__nav-item">
+            <i
+              class="fa-solid fa-magnifying-glass fa-xl header-banner__search-toggle"
+            ></i>
+          </li>
+          <li class="header-banner__nav-item">
             <a href="/html/shopping-cart.html">
-              <i class="fa-solid fa-cart-shopping fa-xl"></i
-            ></a>
+              <i
+                class="fa-solid fa-cart-shopping fa-xl header-banner__cart-icon"
+              ></i>
+            </a>
           </li>
         </ul>
       </nav>
-  </header>
+    </header>
 
     <main>
       <!-- Top Banner, horizontal placement -->
