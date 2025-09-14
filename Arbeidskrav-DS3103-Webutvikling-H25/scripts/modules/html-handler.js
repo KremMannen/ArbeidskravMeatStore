@@ -31,28 +31,37 @@ const htmlHandler = (() => {
     `;
   };
 
-  const generateCartBox = (product) => {
+const generateCartBox = (product) => {
     const pricePerKg = (product.priceNOK * 1000) / product.weightInGrams;
 
     return `
-      <article class="cart-box grid-12-column xs-12 sm-4 md-3" data-id="${product.id}">
-        <img class="cart-box__image img-responsive" src="../images/${product.imgName}" alt="picture of ${product.imgName}">
-        <div class="cart-box__info-container grid-12-column">
-            <div class="cart-box__toptext grid-12-column">
-              <h2 class="cart-box__title">${product.name}</h2>
-              <h2 class="cart-box__weight">${product.weightInGrams}g</h2>
+      <article class="cart-box xs-12 md-6" data-id="${product.id}">
+        <div class="cart-box__content">
+          <div class="cart-box__info-section">
+            <h2 class="cart-box__title">${product.name}</h2>
+            <h3 class="cart-box__weight">${product.weightInGrams}g ${product.producer || ""}</h3>
+            <div class="cart-box__bottom">
+              <div class="cart-box__price-info">
+                <h1 class="cart-box__price">${product.priceNOK}kr</h1>
+                <p class="cart-box__kg-price">${pricePerKg.toFixed(2)} kr/kg</p>
+              </div>
+              <div class="cart-box__button-container">
+                <button class="cart-box__button cart-box__button-subtract" data-id="${product.id}">-</button>
+                <p class="cart-box__product-counter">${product.quantity}</p>
+                <button class="cart-box__button cart-box__button-add" data-id="${product.id}">+</button>
+              </div>
             </div>
-            <h3 class="cart-box__producer">${product.producer}</h3>
-            <div class="cart-box__button-container grid-12-column" >
-              <button class="cart-box__button cart-box__button-subtract" data-id="${product.id}">-</button>
-              <p class="cart-box__product-counter">${product.quantity}</p>
-              <button class="cart-box__button cart-box__button-add" data-id="${product.id}">+</button>
-            </div>
-            <h3 class="cart-box__price">${product.priceNOK}kr</h3>
+          </div>
+          
+          <div class="cart-box__image-section">
+            <img class="cart-box__image img-responsive" src="../images/${product.imgName}" alt="picture of ${product.imgName}">
+          </div>
         </div>
       </article>
     `;
-  };
+};
+
+  
 
   const displayArray = (element, items) => {
     if (!element || !Array.isArray(items)) {

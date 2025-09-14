@@ -1,0 +1,127 @@
+.cart-section__title {
+font-size: 25px;
+  font-family: "Jaro", sans-serif;
+  color: #730d1f;
+  padding: 8px;
+}
+
+.cart-box {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #730d1f;
+  background-color: #fff8e1;
+  margin: 8px;
+  padding: 8px;
+  border: 1px solid rgb(216, 216, 216);
+  box-shadow: 0px 2px 2px rgba(82, 82, 82, 0.438);
+  cursor: grabbing;
+}
+
+.cart-box:hover {
+  box-shadow: 4px 4px 4px rgba(59, 59, 59, 0.658);
+}
+
+.cart-box__content {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  height: 100%;
+}
+
+.cart-box__image-section {
+  width: 50%;
+  order: 1; 
+}
+
+.cart-box__info-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  order: 2; 
+}
+
+.cart-box__image {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.cart-box__title {
+  text-align: left;
+  font-family: "Jaro", sans-serif;
+  font-size: large;
+  padding: 4px 0;
+  margin: 0;
+}
+
+.cart-box__weight {
+  text-align: left;
+  font-weight: bold;
+  margin: 4px 0;
+}
+
+.cart-box__info {
+  margin-bottom: 8px;
+  color: #730d20d8;
+  flex-grow: 1;
+}
+
+.cart-box__bottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: auto;
+}
+
+.cart-box__price-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-box__price {
+  font-size: x-large;
+  font-weight: bold;
+  margin: 0;
+}
+
+.cart-box__kg-price {
+  color: #730d20a2;
+  margin: 0;
+  font-size: small;
+}
+
+.cart-box__button-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cart-box__button {
+  background-color: #f3e4c5;
+  color: #730d20;
+  border: 2px solid #730d20;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  border-radius: 4px;
+  font-size: 18px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cart-box__button:hover {
+  background-color: #730d20;
+  color: #f3e4c5;
+}
+
+.cart-box__product-counter {
+  margin: 0;
+  font-weight: bold;
+  font-size: 16px;
+  min-width: 20px;
+  text-align: center;
+}
