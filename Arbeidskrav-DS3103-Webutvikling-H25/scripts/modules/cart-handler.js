@@ -66,6 +66,7 @@ const cartHandler = (() => {
     }
 
     sessionStorage.setItem("cartContent", JSON.stringify(cart));
+    updateCartBadge();
   };
 
   const getCartContent = () => {
@@ -79,6 +80,7 @@ const cartHandler = (() => {
     if (storedResults) {
       cart = JSON.parse(storedResults);
     }
+    updateCartBadge();
   };
 
   const displayCart = (container) => {
@@ -99,6 +101,30 @@ const cartHandler = (() => {
     window.location.href = "../html/shopping-cart.html";
   };
 
+
+const updateCartBadge = () => {
+  const badge = document.getElementById('cartCount');
+  if (!badge) return; 
+  
+  const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+  badge.textContent = totalItems;
+  
+  if (totalItems > 0) {
+    badge.classList.remove('hidden');
+  } else {
+    badge.classList.add('hidden');
+  }
+};
+
+
+const initCartBadge = () => {
+  const badge = document.getElementById('cartCount');
+  if (badge) {
+    badge.classList.add('hidden'); // Start hidden
+    updateCartBadge(); // Update with current cart content
+  }
+};
+
   restoreCart();
 
   return {
@@ -109,6 +135,7 @@ const cartHandler = (() => {
     displayCart,
     initAddToCartButton,
     showTotalCartSum,
+    initCartBadge,
   };
 })();
 

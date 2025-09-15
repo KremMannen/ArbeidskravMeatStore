@@ -11,6 +11,7 @@ setTimeout(() => {
   // Initialize
   cartHandler.displayCart(resultSection);
   cartHandler.showTotalCartSum();
+  cartHandler.initCartBadge();
 
   // Event listeners
   searchButton.addEventListener("click", () => {

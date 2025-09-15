@@ -80,6 +80,31 @@ body {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.header-banner__nav-item {
+  position: relative; /* Add this to your existing nav-item styles */
+}
+
+.cart-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: #e74c3c;
+  color: white;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  font-size: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+}
+
+.cart-badge.hidden {
+  display: none;
+}
+
 /* Main */
 
 .img-responsive {
