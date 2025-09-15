@@ -8,27 +8,25 @@ setTimeout(() => {
   const searchField = document.querySelector(".header-banner__search-field");
   const cartButton = document.querySelector(".header-banner__cart-icon");
 
-  // Initialize
-  const cartContents = cartHandler.getCartContent();
-
   // Generate product html boxes
-  cartContents.forEach((product) => {
+  cartHandler.getAll().forEach((product) => {
     resultSection.innerHTML += htmlHandler.generateCartBox(product);
   });
 
   // Select the increment buttons on each product, and apply onclick functions
   cartHandler.initIncrementButtons(resultSection);
 
+  // Update price summary on load
   cartHandler.showTotalCartSum();
-
-  // Search field visibility toggle button
-  searchButton.addEventListener("click", () => {
-    searchHandler.toggleSearchField(searchField);
-  });
 
   // Shopping cart button sends you to cart
   cartButton.addEventListener("click", () => {
     cartHandler.goToCart();
+  });
+
+  // Search field visibility toggle button
+  searchButton.addEventListener("click", () => {
+    searchHandler.toggleSearchField(searchField);
   });
 
   // Search on enter press

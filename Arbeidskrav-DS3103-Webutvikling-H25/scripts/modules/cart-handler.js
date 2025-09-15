@@ -20,13 +20,12 @@ const cartHandler = (() => {
       });
   };
 
-  // Finds all increment buttons in a DOM-element, and adds listeners to the buttons which adds or subtrats product amount
+  // Finds all increment buttons in a DOM-element, and adds listeners to the buttons which adds or subtracts product amount
   const initIncrementButtons = (htmlElement) => {
     let subtractButtons = htmlElement.querySelectorAll(
-      ".cart-box__button--subtract"
+      ".cart-box__button-subtract"
     );
-
-    let addButtons = htmlElement.querySelectorAll(".cart-box__button--add");
+    let addButtons = htmlElement.querySelectorAll(".cart-box__button-add");
 
     subtractButtons.forEach((button) => {
       button.addEventListener("click", () => {
@@ -47,9 +46,7 @@ const cartHandler = (() => {
     );
     if (!totalContainer) return;
 
-    const items = getCartContent();
-
-    const total = items.reduce((sum, p) => {
+    const total = cart.reduce((sum, p) => {
       const price = parseInt(p.priceNOK);
       const qty = parseInt(p.quantity);
       return sum + price * qty;
@@ -58,9 +55,8 @@ const cartHandler = (() => {
     totalContainer.innerHTML = htmlHandler.generateTotalPriceBox(total);
   };
 
-  const getCartContent = () => {
+  const getStoredCartContent = () => {
     const storedResults = localStorage.getItem("cartContent");
-    const cartArray = storedResults ? JSON.parse(storedResults) : [];
     return storedResults ? JSON.parse(storedResults) : [];
   };
 
@@ -72,13 +68,48 @@ const cartHandler = (() => {
 
   function addToCart(button) {
     const productId = parseInt(button.dataset.id); // button has data-id
-    const product = inventory.getAll().find((p) => p.id === productId);
+    const product = cart.find((p) => p.id === productId);
 
     if (product) {
       cartHandler.pushObject(product);
     } else {
-      console.warn(`⚠️ Product with id ${productId} not found in inventory`);
+      console.warn(`Product with id ${productId} not found`);
     }
+  }
+
+  function addItem(button) {
+    const productId = parseInt(button.dataset.id);
+    const product = cart.find((p) => p.id === productId);
+
+    if (!product) {
+      return;
+    }
+
+    product.quantity += 1;
+    updateStorageFromArray();
+    updateCounters();
+  }
+
+  function subtractItem(button) {
+    const productId = parseInt(button.dataset.id);
+    const product = cart.find((p) => p.id === productId);
+
+    if (!product) {
+      return;
+    }
+
+    if (product.quantity <= 1) {
+      cart = cart.filter((p) => p.id !== product.id);
+      console.log("[Cart] Removed product:", product.id);
+      updateStorageFromArray();
+      location.reload(); // 🔄 reloads the page
+      return; // stop here, no need to continue
+    } else {
+      product.quantity -= 1;
+    }
+
+    updateStorageFromArray();
+    updateCounters();
   }
 
   const pushObject = (object) => {
@@ -111,6 +142,26 @@ const cartHandler = (() => {
     updateCartBadge();
   };
 
+  const updateStorageFromArray = () => {
+    localStorage.setItem("cartContent", JSON.stringify(cart));
+    console.log("[updateStorageFromArray] Cart saved to storage:", cart);
+    updateCartBadge();
+  };
+
+  const updateCounters = () => {
+    cart.forEach((item) => {
+      const qtyElement = document.querySelector(
+        `.cart-box__product-counter[data-id="${item.id}"]`
+      );
+
+      if (qtyElement) {
+        qtyElement.textContent = item.quantity;
+      }
+    });
+
+    showTotalCartSum();
+  };
+
   // Counts item in cart and shows it in a badge over the cart icon
   const updateCartBadge = () => {
     const badge = document.querySelector(".cartCount");
@@ -133,7 +184,7 @@ const cartHandler = (() => {
     getAll,
     pushObject,
     goToCart,
-    getCartContent,
+    getStoredCartContent,
     initAddToCartButton,
     showTotalCartSum,
     updateCartBadge,

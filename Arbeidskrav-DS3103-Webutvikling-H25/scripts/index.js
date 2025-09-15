@@ -10,26 +10,22 @@ setTimeout(() => {
   const searchField = document.querySelector(".header-banner__search-field");
   const cartButton = document.querySelector(".header-banner__cart-icon");
 
-  // Initialize
-  const addToCartButtons = [];
-  const inventoryAll = inventory.getAll();
-
   // Generate product html boxes
-  inventoryAll.forEach((product) => {
+  inventory.getAll().forEach((product) => {
     productSection.innerHTML += htmlHandler.generateArticleBox(product);
   });
 
   // Select the buttons inside it, and apply onclick function
   cartHandler.initAddToCartButton(productSection);
 
-  // Search field visibility toggle button
-  searchButton.addEventListener("click", () => {
-    searchHandler.toggleSearchField(searchField);
-  });
-
   // Shopping cart button sends you to cart
   cartButton.addEventListener("click", () => {
     cartHandler.goToCart();
+  });
+
+  // Search field visibility toggle button
+  searchButton.addEventListener("click", () => {
+    searchHandler.toggleSearchField(searchField);
   });
 
   // Search on enter press

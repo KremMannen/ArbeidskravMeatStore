@@ -51,7 +51,9 @@ const htmlHandler = (() => {
                 <button class="cart-box__button cart-box__button-subtract" data-id="${
                   product.id
                 }">-</button>
-                <p class="cart-box__product-counter">${product.quantity}</p>
+                <p class="cart-box__product-counter" data-id="${product.id}">
+  ${product.quantity}
+</p>
                 <button class="cart-box__button cart-box__button-add" data-id="${
                   product.id
                 }">+</button>
