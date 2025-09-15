@@ -10,6 +10,7 @@ setTimeout(() => {
 
   // Initialize
   cartHandler.displayCart(resultSection);
+  cartHandler.showTotalCartSum();
 
   // Event listeners
   searchButton.addEventListener("click", () => {

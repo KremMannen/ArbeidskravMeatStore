@@ -1,6 +1,7 @@
 import htmlHandler from "../modules/html-handler.js";
 import inventory from "./inventory.js";
 
+
 const cartHandler = (() => {
   let cart = [];
 
@@ -28,6 +29,23 @@ const cartHandler = (() => {
         });
       });
   };
+
+
+  const showTotalCartSum = () => {
+  const totalContainer = document.querySelector(".cart-section__pricesummary");
+  if (!totalContainer) return;
+
+  const items = getCartContent();
+
+  const total = items.reduce((sum, p) => {
+    const price = parseInt(p.priceNOK);  
+    const qty   = parseInt(p.quantity);  
+    return sum + price * qty;
+  }, 0);
+
+  totalContainer.innerHTML = htmlHandler.generateTotalPriceBox(total);
+};
+
 
   const pushObject = (object) => {
     // Check if product already exists in cart
@@ -64,7 +82,7 @@ const cartHandler = (() => {
   };
 
   const displayCart = (container) => {
-    const allProducts = getAll();
+    const allProducts = getCartContent();
 
     console.log("🛒 DisplayCart called");
     console.log("Contents of getAll():", allProducts);
@@ -90,6 +108,7 @@ const cartHandler = (() => {
     getCartContent,
     displayCart,
     initAddToCartButton,
+    showTotalCartSum,
   };
 })();
 

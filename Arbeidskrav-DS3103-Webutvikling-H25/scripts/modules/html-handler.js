@@ -61,7 +61,11 @@ const generateCartBox = (product) => {
     `;
 };
 
-  
+const generateTotalPriceBox = (total) => `
+  <article class="cart-section__totalprice xs-12">
+    <h1 class="cart-section__totalprice--header">Total: ${total}kr</h1>
+  </article>
+`;
 
   const displayArray = (element, items) => {
     if (!element || !Array.isArray(items)) {
@@ -81,6 +85,7 @@ const generateCartBox = (product) => {
     generate: generateArticleBox,
     displayArray,
     generateCartBox,
+    generateTotalPriceBox,
   };
 })();
 
