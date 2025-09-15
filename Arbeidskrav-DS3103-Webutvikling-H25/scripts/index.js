@@ -5,15 +5,37 @@ import cartHandler from "./modules/cart-handler.js";
 
 // Small delay to ensure everything is ready after navigation. This prevents buttons from buggin out.
 setTimeout(() => {
-  const productSection = document.querySelector(".products-section");
+  const productSection = document.querySelector(".all-products__container");
+  const limitedSection = document.querySelector(
+    ".special-products__container-limited"
+  );
+  const selectedSection = document.querySelector(
+    ".special-products__container-selected"
+  );
   const searchButton = document.querySelector(".header-banner__search-toggle");
   const searchField = document.querySelector(".header-banner__search-field");
   const cartButton = document.querySelector(".header-banner__cart-icon");
 
   // Generate product html boxes
+  // All products
   inventory.getAll().forEach((product) => {
     productSection.innerHTML += htmlHandler.generateArticleBox(product);
   });
+  // Limited products
+  inventory
+    .getAll()
+    .filter((product) => product.tag === "limited")
+    .forEach((product) => {
+      limitedSection.innerHTML += htmlHandler.generateArticleBox(product);
+    });
+
+  // Selected products
+  inventory
+    .getAll()
+    .filter((product) => product.tag === "selected")
+    .forEach((product) => {
+      selectedSection.innerHTML += htmlHandler.generateArticleBox(product);
+    });
 
   // Select the buttons inside it, and apply onclick function
   cartHandler.initAddToCartButton(productSection);

@@ -9,6 +9,7 @@ const inventory = (() => {
       weightInGrams: 230,
       priceNOK: 56,
       quantity: 27,
+      tag: "limited",
     },
     {
       id: 2,
@@ -19,6 +20,7 @@ const inventory = (() => {
       weightInGrams: 1000,
       priceNOK: 234,
       quantity: 33,
+      tag: "limited",
     },
     {
       id: 3,
@@ -29,6 +31,7 @@ const inventory = (() => {
       weightInGrams: 500,
       priceNOK: 62,
       quantity: 15,
+      tag: "limited",
     },
     {
       id: 4,
@@ -39,6 +42,7 @@ const inventory = (() => {
       weightInGrams: 400,
       priceNOK: 56,
       quantity: 38,
+      tag: "limited",
     },
     {
       id: 5,
@@ -49,6 +53,7 @@ const inventory = (() => {
       weightInGrams: 370,
       priceNOK: 73,
       quantity: 22,
+      tag: "selected",
     },
     {
       id: 6,
@@ -59,6 +64,7 @@ const inventory = (() => {
       weightInGrams: 600,
       priceNOK: 64,
       quantity: 31,
+      tag: "selected",
     },
     {
       id: 7,
@@ -69,6 +75,7 @@ const inventory = (() => {
       weightInGrams: 450,
       priceNOK: 57,
       quantity: 18,
+      tag: "selected",
     },
     {
       id: 8,
@@ -79,6 +86,7 @@ const inventory = (() => {
       weightInGrams: 470,
       priceNOK: 69,
       quantity: 40,
+      tag: "selected",
     },
   ];
 
