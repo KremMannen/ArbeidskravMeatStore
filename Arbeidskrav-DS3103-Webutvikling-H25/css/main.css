@@ -171,6 +171,7 @@ body {
 .product-box__weight {
   text-align: center;
   font-weight: bold;
+  padding-bottom: 12px;
 }
 
 .product-box__info {
