@@ -41,6 +41,7 @@ body {
 }
 
 .header-banner__nav-item {
+  position: relative;
   display: flex;
   align-items: center;
 }
@@ -80,31 +81,6 @@ body {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.header-banner__nav-item {
-  position: relative; /* Add this to your existing nav-item styles */
-}
-
-.cart-badge {
-  position: absolute;
-  top: -8px;
-  right: -8px;
-  background: #e74c3c;
-  color: white;
-  border-radius: 50%;
-  width: 18px;
-  height: 18px;
-  font-size: 11px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  font-family: Arial, sans-serif;
-}
-
-.cart-badge.hidden {
-  display: none;
-}
-
 /* Main */
 
 .img-responsive {
@@ -128,7 +104,6 @@ body {
 /*Styling for product boxes on all pages*/
 
 .cart-section__totalprice {
-  
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
   font-size: larger;
@@ -138,6 +113,31 @@ body {
   padding: 16px;
   border: 1px solid #730d1f;
   box-shadow: 0px 2px 2px rgba(82, 82, 82, 0.438);
+}
+
+.cart-container {
+  position: relative;
+  display: inline-block;
+}
+
+.cart-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: #e74c3c;
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.cart-badge.hidden {
+  display: none;
 }
 
 .product-box {
