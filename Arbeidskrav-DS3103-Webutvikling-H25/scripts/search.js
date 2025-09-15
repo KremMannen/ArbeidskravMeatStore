@@ -13,7 +13,7 @@ setTimeout(() => {
 
   // Generate product html boxes
   searchResults.forEach((product) => {
-    resultSection.innerHTML += htmlHandler.generate(product);
+    resultSection.innerHTML += htmlHandler.generateArticleBox(product);
   });
 
   // Select the buttons inside it, and apply onclick function

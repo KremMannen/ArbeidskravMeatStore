@@ -4,13 +4,12 @@ import inventory from "./inventory.js";
 const cartHandler = (() => {
   let cart = [];
 
-  // get array of products in shoppnig cart, useful to combine with
-  // htmlHandler.generate(array)
+  // get array of products in shopping cart array
   const getAll = () => {
     return structuredClone(cart);
   };
 
-  // Finds all purchase buttons in a DOM-elemenet of articles, and adds listeners to the buttons which adds product to cart onclick
+  // Finds all purchase buttons in a DOM-element, and adds listeners to the buttons which adds its product to cart
   const initAddToCartButton = (htmlElement) => {
     htmlElement
       .querySelectorAll(".product-box__button--purchase")
@@ -21,26 +20,25 @@ const cartHandler = (() => {
       });
   };
 
-  const pushObject = (object) => {
-    // Check if product already exists in cart
-    const existing = cart.find((p) => p.id === object.id);
+  // Finds all increment buttons in a DOM-element, and adds listeners to the buttons which adds or subtrats product amount
+  const initIncrementButtons = (htmlElement) => {
+    let subtractButtons = htmlElement.querySelectorAll(
+      ".cart-box__button--subtract"
+    );
 
-    if (existing) {
-      existing.quantity += 1;
-      console.log(
-        `🔄 Increased quantity of "${object.name}" to ${existing.quantity}`
-      );
-    } else {
-      const copy = structuredClone(object);
-      copy.quantity = 1;
-      cart.push(copy);
-      console.log(
-        `🛒 Added new product "${object.name}" to cart. Total items: ${cart.length}`
-      );
-    }
+    let addButtons = htmlElement.querySelectorAll(".cart-box__button--add");
 
-    localStorage.setItem("cartContent", JSON.stringify(cart));
-    updateCartBadge();
+    subtractButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        subtractItem(button);
+      });
+    });
+
+    addButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        addItem(button);
+      });
+    });
   };
 
   const showTotalCartSum = () => {
@@ -66,6 +64,45 @@ const cartHandler = (() => {
     return storedResults ? JSON.parse(storedResults) : [];
   };
 
+  const goToCart = () => {
+    window.location.href = "../html/shopping-cart.html";
+  };
+
+  // Helper functions
+
+  function addToCart(button) {
+    const productId = parseInt(button.dataset.id); // button has data-id
+    const product = inventory.getAll().find((p) => p.id === productId);
+
+    if (product) {
+      cartHandler.pushObject(product);
+    } else {
+      console.warn(`⚠️ Product with id ${productId} not found in inventory`);
+    }
+  }
+
+  const pushObject = (object) => {
+    // Check if product already exists in cart
+    const existing = cart.find((p) => p.id === object.id);
+
+    if (existing) {
+      existing.quantity += 1;
+      console.log(
+        `🔄 Increased quantity of "${object.name}" to ${existing.quantity}`
+      );
+    } else {
+      const copy = structuredClone(object);
+      copy.quantity = 1;
+      cart.push(copy);
+      console.log(
+        `🛒 Added new product "${object.name}" to cart. Total items: ${cart.length}`
+      );
+    }
+
+    localStorage.setItem("cartContent", JSON.stringify(cart));
+    updateCartBadge();
+  };
+
   const updateArrayFromStorage = () => {
     const storedResults = localStorage.getItem("cartContent");
     if (storedResults) {
@@ -74,25 +111,7 @@ const cartHandler = (() => {
     updateCartBadge();
   };
 
-  const displayCart = (container) => {
-    const allProducts = getCartContent();
-
-    console.log("🛒 DisplayCart called");
-    console.log("Contents of getAll():", allProducts);
-
-    allProducts.forEach((product, index) => {
-      console.log(`Rendering product #${index + 1}:`, product);
-
-      // Generate new HTML cart box
-      container.innerHTML += htmlHandler.generateCartBox(product);
-    });
-  };
-
-  const goToCart = () => {
-    window.location.href = "../html/shopping-cart.html";
-  };
-
-  // Functions for counting items in shopping cart and showing them over the cart-icon on the main page
+  // Counts item in cart and shows it in a badge over the cart icon
   const updateCartBadge = () => {
     const badge = document.querySelector(".cartCount");
     if (!badge) return;
@@ -107,17 +126,6 @@ const cartHandler = (() => {
     }
   };
 
-  function addToCart(button) {
-    const productId = parseInt(button.dataset.id); // button has data-id
-    const product = inventory.getAll().find((p) => p.id === productId);
-
-    if (product) {
-      cartHandler.pushObject(product);
-    } else {
-      console.warn(`⚠️ Product with id ${productId} not found in inventory`);
-    }
-  }
-
   // Runs on load to update array from localStorage
   updateArrayFromStorage();
 
@@ -126,10 +134,10 @@ const cartHandler = (() => {
     pushObject,
     goToCart,
     getCartContent,
-    displayCart,
     initAddToCartButton,
     showTotalCartSum,
     updateCartBadge,
+    initIncrementButtons,
   };
 })();
 

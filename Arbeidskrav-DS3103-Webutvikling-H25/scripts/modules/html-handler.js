@@ -90,7 +90,7 @@ const htmlHandler = (() => {
   };
 
   return {
-    generate: generateArticleBox,
+    generateArticleBox,
     displayArray,
     generateCartBox,
     generateTotalPriceBox,

@@ -16,7 +16,7 @@ setTimeout(() => {
 
   // Generate product html boxes
   inventoryAll.forEach((product) => {
-    productSection.innerHTML += htmlHandler.generate(product);
+    productSection.innerHTML += htmlHandler.generateArticleBox(product);
   });
 
   // Select the buttons inside it, and apply onclick function

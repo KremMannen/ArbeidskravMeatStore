@@ -9,21 +9,32 @@ setTimeout(() => {
   const cartButton = document.querySelector(".header-banner__cart-icon");
 
   // Initialize
-  cartHandler.displayCart(resultSection);
+  const cartContents = cartHandler.getCartContent();
+
+  // Generate product html boxes
+  cartContents.forEach((product) => {
+    resultSection.innerHTML += htmlHandler.generateCartBox(product);
+  });
+
+  // Select the increment buttons on each product, and apply onclick functions
+  cartHandler.initIncrementButtons(resultSection);
+
   cartHandler.showTotalCartSum();
 
-  // Event listeners
+  // Search field visibility toggle button
   searchButton.addEventListener("click", () => {
     searchHandler.toggleSearchField(searchField);
   });
 
+  // Shopping cart button sends you to cart
+  cartButton.addEventListener("click", () => {
+    cartHandler.goToCart();
+  });
+
+  // Search on enter press
   searchField.addEventListener("keydown", (e) => {
     if (e.key === "Enter") {
       searchHandler.handleSearchFromField(searchField);
     }
-  });
-
-  cartButton.addEventListener("click", () => {
-    cartHandler.goToCart();
   });
 }, 10); // 10 ms
