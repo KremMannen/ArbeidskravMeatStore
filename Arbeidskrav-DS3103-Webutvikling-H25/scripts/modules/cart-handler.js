@@ -40,21 +40,6 @@ const cartHandler = (() => {
     });
   };
 
-  const showTotalCartSum = () => {
-    const totalContainer = document.querySelector(
-      ".cart-section__pricesummary"
-    );
-    if (!totalContainer) return;
-
-    const total = cart.reduce((sum, p) => {
-      const price = parseInt(p.priceNOK);
-      const qty = parseInt(p.quantity);
-      return sum + price * qty;
-    }, 0);
-
-    totalContainer.innerHTML = htmlHandler.generateTotalPriceBox(total);
-  };
-
   const getStoredCartContent = () => {
     const storedResults = localStorage.getItem("cartContent");
     return storedResults ? JSON.parse(storedResults) : [];
@@ -65,51 +50,15 @@ const cartHandler = (() => {
   };
 
   // Helper functions
-
   function addToCart(button) {
     const productId = parseInt(button.dataset.id); // button has data-id
-    const product = cart.find((p) => p.id === productId);
+    const product = inventory.getAll().find((p) => p.id === productId);
 
     if (product) {
       cartHandler.pushObject(product);
     } else {
       console.warn(`Product with id ${productId} not found`);
     }
-  }
-
-  function addItem(button) {
-    const productId = parseInt(button.dataset.id);
-    const product = cart.find((p) => p.id === productId);
-
-    if (!product) {
-      return;
-    }
-
-    product.quantity += 1;
-    updateStorageFromArray();
-    updateCounters();
-  }
-
-  function subtractItem(button) {
-    const productId = parseInt(button.dataset.id);
-    const product = cart.find((p) => p.id === productId);
-
-    if (!product) {
-      return;
-    }
-
-    if (product.quantity <= 1) {
-      cart = cart.filter((p) => p.id !== product.id);
-      console.log("[Cart] Removed product:", product.id);
-      updateStorageFromArray();
-      location.reload(); // 🔄 reloads the page
-      return; // stop here, no need to continue
-    } else {
-      product.quantity -= 1;
-    }
-
-    updateStorageFromArray();
-    updateCounters();
   }
 
   const pushObject = (object) => {
@@ -134,6 +83,42 @@ const cartHandler = (() => {
     updateCartBadge();
   };
 
+  // increment buttons in shopping cart
+  function addItem(button) {
+    const productId = parseInt(button.dataset.id);
+    const product = cart.find((p) => p.id === productId);
+
+    if (!product) {
+      return;
+    }
+
+    product.quantity += 1;
+    updateStorageFromArray();
+    updateCounters();
+  }
+  function subtractItem(button) {
+    const productId = parseInt(button.dataset.id);
+    const product = cart.find((p) => p.id === productId);
+
+    if (!product) {
+      return;
+    }
+
+    if (product.quantity <= 1) {
+      cart = cart.filter((p) => p.id !== product.id);
+      console.log("[Cart] Removed product:", product.id);
+      updateStorageFromArray();
+      location.reload(); // 🔄 reloads the page
+      return; // stop here, no need to continue
+    } else {
+      product.quantity -= 1;
+    }
+
+    updateStorageFromArray();
+    updateCounters();
+  }
+
+  // Updaters
   const updateArrayFromStorage = () => {
     const storedResults = localStorage.getItem("cartContent");
     if (storedResults) {
@@ -159,10 +144,9 @@ const cartHandler = (() => {
       }
     });
 
-    showTotalCartSum();
+    updateCartSum();
   };
 
-  // Counts item in cart and shows it in a badge over the cart icon
   const updateCartBadge = () => {
     const badge = document.querySelector(".cartCount");
     if (!badge) return;
@@ -177,6 +161,21 @@ const cartHandler = (() => {
     }
   };
 
+  const updateCartSum = () => {
+    const totalContainer = document.querySelector(
+      ".cart-section__pricesummary"
+    );
+    if (!totalContainer) return;
+
+    const total = cart.reduce((sum, p) => {
+      const price = parseInt(p.priceNOK);
+      const qty = parseInt(p.quantity);
+      return sum + price * qty;
+    }, 0);
+
+    totalContainer.innerHTML = htmlHandler.generateTotalPriceBox(total);
+  };
+
   // Runs on load to update array from localStorage
   updateArrayFromStorage();
 
@@ -186,7 +185,7 @@ const cartHandler = (() => {
     goToCart,
     getStoredCartContent,
     initAddToCartButton,
-    showTotalCartSum,
+    showTotalCartSum: updateCartSum,
     updateCartBadge,
     initIncrementButtons,
   };
