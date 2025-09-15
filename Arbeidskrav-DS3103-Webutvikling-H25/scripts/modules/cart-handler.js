@@ -129,6 +129,7 @@ const cartHandler = (() => {
     displayCart,
     initAddToCartButton,
     showTotalCartSum,
+    updateCartBadge,
   };
 })();
 

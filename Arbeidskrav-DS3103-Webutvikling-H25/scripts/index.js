@@ -22,12 +22,12 @@ setTimeout(() => {
   // Select the buttons inside it, and apply onclick function
   cartHandler.initAddToCartButton(productSection);
 
-  // Toggle search field visibility button
+  // Search field visibility toggle button
   searchButton.addEventListener("click", () => {
     searchHandler.toggleSearchField(searchField);
   });
 
-  // Shopping cart button
+  // Shopping cart button sends you to cart
   cartButton.addEventListener("click", () => {
     cartHandler.goToCart();
   });

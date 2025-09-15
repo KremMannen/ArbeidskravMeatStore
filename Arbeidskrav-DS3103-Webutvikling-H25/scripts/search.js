@@ -1,5 +1,6 @@
 import htmlHandler from "./modules/html-handler.js";
 import searchHandler from "./modules/search-handler.js";
+import cartHandler from "./modules/cart-handler.js";
 
 setTimeout(() => {
   const resultSection = document.querySelector(".result-section");
@@ -8,20 +9,30 @@ setTimeout(() => {
   const cartButton = document.querySelector(".header-banner__cart-icon");
 
   // Initialize
-  htmlHandler.displayArray(resultSection, searchHandler.getSearchResults());
+  const searchResults = searchHandler.getSearchResults();
 
+  // Generate product html boxes
+  searchResults.forEach((product) => {
+    resultSection.innerHTML += htmlHandler.generate(product);
+  });
+
+  // Select the buttons inside it, and apply onclick function
+  cartHandler.initAddToCartButton(resultSection);
+
+  // Search field visibility toggle button
   searchButton.addEventListener("click", () => {
     searchHandler.toggleSearchField(searchField);
   });
 
+  // Shopping cart button sends you to cart
+  cartButton.addEventListener("click", () => {
+    cartHandler.goToCart();
+  });
+
+  // Search on enter press
   searchField.addEventListener("keydown", (e) => {
     if (e.key === "Enter") {
       searchHandler.handleSearchFromField(searchField);
     }
-  });
-
-  cartButton.addEventListener("click", () => {
-    cartHandler.saveCartContent();
-    cartHandler.goToCart();
   });
 }, 10); // 10 ms
