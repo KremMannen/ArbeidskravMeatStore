@@ -8,7 +8,7 @@ setTimeout(() => {
   const cartButton = document.querySelector(".header-banner__cart-icon");
 
   // Initialize
-  htmlHandler.display(resultSection, searchHandler.getSearchResults());
+  htmlHandler.displayArray(resultSection, searchHandler.getSearchResults());
 
   searchButton.addEventListener("click", () => {
     searchHandler.toggleSearchField(searchField);
