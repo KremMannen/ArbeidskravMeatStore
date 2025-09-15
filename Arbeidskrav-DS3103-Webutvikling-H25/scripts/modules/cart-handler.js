@@ -65,18 +65,18 @@ const cartHandler = (() => {
       );
     }
 
-    sessionStorage.setItem("cartContent", JSON.stringify(cart));
+    localStorage.setItem("cartContent", JSON.stringify(cart));
     updateCartBadge();
   };
 
   const getCartContent = () => {
-    const storedResults = sessionStorage.getItem("cartContent");
+    const storedResults = localStorage.getItem("cartContent");
     const cartArray = storedResults ? JSON.parse(storedResults) : [];
     return storedResults ? JSON.parse(storedResults) : [];
   };
 
   const restoreCart = () => {
-    const storedResults = sessionStorage.getItem("cartContent");
+    const storedResults = localStorage.getItem("cartContent");
     if (storedResults) {
       cart = JSON.parse(storedResults);
     }
