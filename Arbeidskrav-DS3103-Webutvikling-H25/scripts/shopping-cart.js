@@ -5,7 +5,7 @@ import cartHandler from "./modules/cart-handler.js";
 setTimeout(() => {
   const resultSection = document.querySelector(".cart-section__container");
   const searchButton = document.querySelector(".header-banner__search-toggle");
-  let searchField = document.querySelector(".header-banner__search-field");
+  const searchField = document.querySelector(".header-banner__search-field");
   const cartButton = document.querySelector(".header-banner__cart-icon");
 
   // Initialize
