@@ -101,9 +101,9 @@ const cartHandler = (() => {
     window.location.href = "../html/shopping-cart.html";
   };
 
-
+// Functions for counting items in shopping cart and showing them over the cart-icon on the main page
 const updateCartBadge = () => {
-  const badge = document.getElementById('cartCount');
+  const badge = document.querySelector(".cartCount");
   if (!badge) return; 
   
   const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
@@ -116,12 +116,11 @@ const updateCartBadge = () => {
   }
 };
 
-
 const initCartBadge = () => {
-  const badge = document.getElementById('cartCount');
+  const badge = document.querySelector(".cartCount");
   if (badge) {
-    badge.classList.add('hidden'); // Start hidden
-    updateCartBadge(); // Update with current cart content
+    badge.classList.add('hidden'); 
+    updateCartBadge(); 
   }
 };
 
