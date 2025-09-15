@@ -9,7 +9,7 @@ body {
   background-color: #730d1f;
   display: flex;
   justify-content: space-between;
-  padding: 1rem;
+  padding: 8px;
   align-items: center;
 }
 
@@ -234,6 +234,10 @@ footer h3 {
 
 footer li {
   padding: 10px;
+}
+
+.footer__list-item {
+  cursor: pointer;
 }
 
 /* Mobile: stack sections vertically */
