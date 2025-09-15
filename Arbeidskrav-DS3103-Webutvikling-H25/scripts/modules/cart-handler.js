@@ -118,6 +118,13 @@ const cartHandler = (() => {
     updateCounters();
   }
 
+  const emptyCart = () => {
+      cart = [];
+      localStorage.removeItem("cartContent");
+      updateCartBadge();
+      updateCartSum();
+  }
+
   // Updaters
   const updateArrayFromStorage = () => {
     const storedResults = localStorage.getItem("cartContent");
@@ -188,6 +195,7 @@ const cartHandler = (() => {
     showTotalCartSum: updateCartSum,
     updateCartBadge,
     initIncrementButtons,
+    emptyCart,
   };
 })();
 

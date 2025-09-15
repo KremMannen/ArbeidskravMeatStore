@@ -7,6 +7,7 @@ setTimeout(() => {
   const searchButton = document.querySelector(".header-banner__search-toggle");
   const searchField = document.querySelector(".header-banner__search-field");
   const cartButton = document.querySelector(".header-banner__cart-icon");
+  const emptyBtn  = document.querySelector(".cart-section__btn--empty-cart");
 
   // Generate product html boxes
   cartHandler.getAll().forEach((product) => {
@@ -23,6 +24,11 @@ setTimeout(() => {
   cartButton.addEventListener("click", () => {
     cartHandler.goToCart();
   });
+
+  emptyBtn.addEventListener("click", () => {
+    cartHandler.emptyCart();
+    resultSection.innerHTML="";
+  })
 
   // Search field visibility toggle button
   searchButton.addEventListener("click", () => {

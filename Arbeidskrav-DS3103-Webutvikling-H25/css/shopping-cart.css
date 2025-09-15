@@ -125,3 +125,23 @@ font-size: 25px;
   min-width: 20px;
   text-align: center;
 }
+
+.cart-section__btn--empty-cart {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: larger;
+  color: #730d1f;
+  background-color: #fff8e1;
+  margin-left: 16px;
+  margin-top: -16px;
+  margin-bottom: 16px;
+  padding: 8px;
+  border: 1px solid #730d1f;
+  box-shadow: 0px 2px 2px rgba(82, 82, 82, 0.438);
+  cursor: pointer;
+}
+
+.cart-section__btn--empty-cart:hover{
+color: #fff8e1;
+  background-color: #730d1f;
+}
