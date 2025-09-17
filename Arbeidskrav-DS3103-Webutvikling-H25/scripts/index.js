@@ -37,8 +37,10 @@ setTimeout(() => {
       selectedSection.innerHTML += htmlHandler.generateArticleBox(product);
     });
 
-  // Select the buttons inside it, and apply onclick function
+  // Select the buttons, and apply onclick function
   cartHandler.initAddToCartButton(productSection);
+  cartHandler.initAddToCartButton(limitedSection);
+  cartHandler.initAddToCartButton(selectedSection);
 
   // Shopping cart button sends you to cart
   cartButton.addEventListener("click", () => {
