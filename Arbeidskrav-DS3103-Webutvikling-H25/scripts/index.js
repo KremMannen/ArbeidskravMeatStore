@@ -19,14 +19,17 @@ setTimeout(() => {
   // Generate product html boxes
   // All products
   inventory.getAll().forEach((product) => {
-    productSection.innerHTML += htmlHandler.generateArticleBox(product);
+    productSection.innerHTML += htmlHandler.generateArticleBox(product, "md-3");
   });
   // Limited products
   inventory
     .getAll()
     .filter((product) => product.tag === "limited")
     .forEach((product) => {
-      limitedSection.innerHTML += htmlHandler.generateArticleBox(product);
+      limitedSection.innerHTML += htmlHandler.generateArticleBox(
+        product,
+        "md-6"
+      );
     });
 
   // Selected products
@@ -34,7 +37,10 @@ setTimeout(() => {
     .getAll()
     .filter((product) => product.tag === "selected")
     .forEach((product) => {
-      selectedSection.innerHTML += htmlHandler.generateArticleBox(product);
+      selectedSection.innerHTML += htmlHandler.generateArticleBox(
+        product,
+        "md-6"
+      );
     });
 
   // Select the buttons, and apply onclick function

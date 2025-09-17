@@ -1,10 +1,10 @@
 // html-generator.js
 const htmlHandler = (() => {
-  const generateArticleBox = (product) => {
+  const generateArticleBox = (product, span) => {
     const pricePerKg = (product.priceNOK * 1000) / product.weightInGrams;
 
     return `
-      <article class="product-box xs-12 sm-4 md-6" data-id="${product.id}">
+      <article class="product-box xs-12 sm-4 ${span}" data-id="${product.id}">
         <img class="product-box__image img-responsive" src="../images/${
           product.imgName
         }" alt="picture of ${product.imgName}">

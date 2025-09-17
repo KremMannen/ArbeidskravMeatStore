@@ -108,11 +108,13 @@ body {
   margin-bottom: 2%;
 }
 
-.special-products {
-  margin-left: 10%;
-  margin-right: 10%;
-  margin-top: 2%;
-  margin-bottom: 2%;
+.all-products__title {
+  font-family: "Jaro", sans-serif;
+  font-size: 45px;
+  white-space: nowrap;
+  padding: 12px;
+  color: #730d1f;
+  text-shadow: 0px 2px 4px rgb(102, 102, 102);
 }
 
 .special-products__title {
@@ -125,6 +127,7 @@ body {
 }
 
 .special-products__group {
+  padding: 50px;
   grid-column: span 6 / auto;
 }
 
@@ -316,6 +319,10 @@ footer li {
   .md-3 {
     grid-column: auto / span 3;
   }
+  .md-4 {
+    grid-column: auto / span 4;
+  }
+
   .md-6 {
     grid-column: auto / span 6;
   }
