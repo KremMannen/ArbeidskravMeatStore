@@ -2,6 +2,7 @@ import inventory from "./modules/inventory.js";
 import htmlHandler from "./modules/html-handler.js";
 import searchHandler from "./modules/search-handler.js";
 import cartHandler from "./modules/cart-handler.js";
+import db from "./services/db.js";
 
 // Small delay to ensure everything is ready after navigation. This prevents buttons from buggin out.
 setTimeout(() => {

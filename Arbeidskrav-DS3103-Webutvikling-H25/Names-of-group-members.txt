@@ -1,8 +1,0 @@
-Write first name and last name of all group members here.
-Only 1 in the group uploads to Canvas on behalf of the group!
-
-Group member 1:
-Marius André Ellingsen
-
-Group member 2: 
-Marius Kristensen
